@@ -1,0 +1,25 @@
+name: rtm_docs
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - certifi=2019.11.28=py36h9f0ad1d_1
+  - click=7.1.1=pyh8c360ce_0
+  - jinja2=2.11.1=py_0
+  - livereload=2.6.1=py_0
+  - markdown=3.2.1=py_0
+  - markupsafe=1.1.1=py36h68a101e_1
+  - mkdocs=1.0.4=py_0
+  - pip=19.2.3=py36_0
+  - python=3.6.10=he025d50_1009_cpython
+  - python_abi=3.6=1_cp36m
+  - pyyaml=5.3=py36h68a101e_1
+  - setuptools=46.0.0=py36h9f0ad1d_2
+  - six=1.14.0=py_1
+  - tornado=6.0.4=py36hfa6e2cd_0
+  - vc=14.1=h0510ff6_4
+  - vs2015_runtime=14.16.27012=hf0eaf9b_1
+  - wheel=0.34.2=py_1
+  - wincertstore=0.2=py36_1003
+  - yaml=0.2.2=hfa6e2cd_1
+prefix: C:\Users\bwen\Anaconda3\envs\rtm_docs
