@@ -16,7 +16,7 @@ We currently supported the following environments. You can find instruction to i
 * `tlpy37`: common packages to work with SQL Server, data frames, charts and figures
 * `tlgpd`: geopandas to work with spatial files like shape files
 * `rtm_docs`: mkdocs to build rtm docs
-* `popsim_master`: latest population synthesis tool
-* `popsim_skipint`: population synthesis tool used for survey weighting, used for Trip Diary 2017
+* `popsim_master`: latest population synthesis tool, based on `tlpy37`
+* `popsim_skipint`: population synthesis tool with skip integer option enabled for survey weighting, based on Python 2. Used for Trip Diary 2017 and Evergreen Pre-Post Survey weighting
 
 Learn more about conda environments here: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html

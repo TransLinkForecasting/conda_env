@@ -12,6 +12,7 @@
 conda remove -y --name tlgpd --all
 conda create -y -n tlgpd python=3.7 pip
 conda activate tlgpd
+pip install --upgrade autopep8==1.4.4
 setx GDAL_VERSION "3.0.4"
 pip install source/GDAL-3.0.4-cp37-cp37m-win_amd64.whl --upgrade
 pip install source/Shapely-1.7.0-cp37-cp37m-win_amd64.whl --upgrade

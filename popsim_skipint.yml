@@ -1,5 +1,6 @@
 name: popsim_skipint
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - blas=1.0=mkl
