@@ -1,6 +1,5 @@
 name: popsim_skipint
 channels:
-  - conda-forge
   - defaults
 dependencies:
   - blas=1.0=mkl
@@ -37,7 +36,6 @@ dependencies:
   - zstd=1.3.7=h1b0e4d7_0
   - pip:
     - activitysim==0.5
-    - future==0.18.2
     - openmatrix==0.3.5.0
     - orca==1.5.3
     - ortools==7.3.7083

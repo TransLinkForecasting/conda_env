@@ -7,4 +7,3 @@ jupyter nbextension enable codefolding/main
 jupyter nbextension enable code_prettify/autopep8
 jupyter nbextension enable execute_time/ExecuteTime
 conda env export -n base -f base.yml
-conda deactivate

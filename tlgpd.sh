@@ -1,3 +1,4 @@
+# TL Geopandas Python 3.7
 #
 #1. install vs build tool
 #vs_buildtools__1242544074.1534191569.exe
@@ -9,7 +10,6 @@
 #3. install python binding for GDAL - install in your anaconda installation's specific \envs\ tlgpd folder
 #[GDAL-3.0.2.win-amd64-py3.7.msi]
 #
-conda remove -y --name tlgpd --all
 conda create -y -n tlgpd python=3.7 pip
 conda activate tlgpd
 pip install --upgrade autopep8==1.4.4
