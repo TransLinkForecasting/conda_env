@@ -5,7 +5,6 @@ dependencies:
   - blas=1.0=mkl
   - blosc=1.16.3=hc65f11a_0
   - bzip2=1.0.8=h0c8e037_0
-  - ca-certificates=2020.1.1=0
   - certifi=2019.11.28=py27_0
   - funcsigs=1.0.2=py27h8885ae1_0
   - hdf5=1.10.4=h530792d_0
@@ -22,7 +21,7 @@ dependencies:
   - numpy-base=1.16.6=py27hb1d0314_0
   - pip=19.3.1=py27_0
   - pytables=3.5.2=py27h6a9b274_1
-  - python=2.7.17=h930f6bb_0
+  - python=2.7.16=hcb6e200_0
   - setuptools=44.0.0=py27_0
   - six=1.13.0=py27_0
   - snappy=1.1.7=he46498f_3
