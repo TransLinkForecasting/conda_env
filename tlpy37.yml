@@ -5,7 +5,7 @@ dependencies:
   - backcall=0.1.0=py37_0
   - blas=1.0=mkl
   - ca-certificates=2020.1.1=0
-  - certifi=2019.11.28=py37_0
+  - certifi=2019.11.28=py37_1
   - colorama=0.4.3=py_0
   - cycler=0.10.0=py37_0
   - decorator=4.4.2=py_0
@@ -69,6 +69,7 @@ dependencies:
   - wheel=0.34.2=py37_0
   - wincertstore=0.2=py37_0
   - xlrd=1.2.0=py37_0
+  - xlsxwriter=1.2.8=py_0
   - zeromq=4.3.1=h33f27b4_3
   - zlib=1.2.11=h62dcd97_3
   - pip:

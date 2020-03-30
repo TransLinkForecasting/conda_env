@@ -12,6 +12,7 @@
 #
 conda create -y -n tlgpd python=3.7 pip
 conda activate tlgpd
+conda install -y ipykernel
 pip install --upgrade autopep8==1.4.4
 setx GDAL_VERSION "3.0.4"
 pip install source/GDAL-3.0.4-cp37-cp37m-win_amd64.whl --upgrade
@@ -24,7 +25,9 @@ pip install source/rasterio-1.1.3-cp37-cp37m-win_amd64.whl --upgrade
 pip install source/Cartopy-0.17.0-cp37-cp37m-win_amd64.whl --upgrade
 #pip install geopandas==0.7.0
 pip install contextily
-conda install -y ipykernel
+pip install matplotlib cycler kiwisolver descartes
+pip install seaborn folium branca scipy
+pip install xlrd xlsxwriter
 ipython kernel install --user --name=tlgpd
 conda env export -n tlgpd -f tlgpd.yml
 conda deactivate
