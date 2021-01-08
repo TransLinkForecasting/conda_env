@@ -1,7 +1,9 @@
-# Anaconda 2020.02
+# Miniconda3-py38_4.9.2 from https://repo.anaconda.com/miniconda/
 conda activate base
-pip install --upgrade autopep8==1.4.4
-pip install jupyter_contrib_nbextensions==0.4.0
+pip install --upgrade pip
+pip install --upgrade jupyter==1.0.0
+pip install --upgrade autopep8==1.5.4
+pip install --upgrade jupyter_contrib_nbextensions==0.5.1
 jupyter contrib nbextension install --user
 jupyter nbextension enable codefolding/main
 jupyter nbextension enable code_prettify/autopep8
