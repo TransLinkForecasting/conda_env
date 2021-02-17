@@ -1,12 +1,12 @@
-# Anaconda Environments
+# Conda Environments
 
 This repository contains instruction to set up standard environments for working with various Analytics projects.
 
 Each environment contains instruction to create a virtual environment, and install all the relevant requirements and packages. The purpose of virtual environments is to standardize code  version across developers and to minimize version conflicts.
 
-## Base Anaconda
+## Base Distribution
 
-The current Anaconda version is 2020.02, you can obtain it from [Anaconda.com](https://repo.anaconda.com/archive/Anaconda3-2020.02-Windows-x86_64.exe).
+The base version of Miniconda version is 4.8.3, you can obtain it from [Anaconda.com](https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.3-Windows-x86_64.exe).
 
 ## List of environments
 
@@ -18,5 +18,6 @@ We currently supported the following environments. You can find instruction to i
 * `rtm_docs`: mkdocs to build rtm docs
 * `popsim_master`: latest population synthesis tool, based on `tlpy37`
 * `popsim_skipint`: population synthesis tool with skip integer option enabled for survey weighting, based on Python 2. Used for Trip Diary 2017 and Evergreen Pre-Post Survey weighting
+* `EMAT`: environment based on `TMIP/EMAT`
 
 Learn more about conda environments here: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
