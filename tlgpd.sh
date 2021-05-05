@@ -10,6 +10,7 @@
 #3. install python binding for GDAL - install in your anaconda installation's specific \envs\ tlgpd folder
 #[GDAL-3.0.2.win-amd64-py3.7.msi]
 #
+conda remove --name tlgpd --all
 conda create -y -n tlgpd python=3.7 pip
 conda activate tlgpd
 conda install -y ipykernel
