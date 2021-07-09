@@ -9,6 +9,7 @@ pip install activitysim==0.9.9.1
 pip install source/populationsim-0.5.zip
 pip install CryptPandas==0.1.1
 pip install statsmodels==0.12.2
+pip install openyxl==3.0.7
 ipython kernel install --user --name=popsim_master
 conda env export -n popsim_master -f popsim_master.yml
 conda deactivate
