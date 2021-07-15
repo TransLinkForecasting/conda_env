@@ -1,34 +1,25 @@
-# TL Geopandas Python 3.7
-#
-#1. install vs build tool
-#vs_buildtools__1242544074.1534191569.exe
-#2. install GDAL for windows - follow instructions carefully
-#https://sandbox.idre.ucla.edu/sandbox/tutorials/installing-gdal-for-windows
-#http://www.gisinternals.com/release.php
-#https://www.lfd.uci.edu/~gohlke/pythonlibs/
-#[gdal-300-1900-x64-core.msi]
-#3. install python binding for GDAL - install in your anaconda installation's specific \envs\ tlgpd folder
-#[GDAL-3.0.2.win-amd64-py3.7.msi]
-#
-conda remove --name tlgpd --all
-conda create -y -n tlgpd python=3.7 pip
+# TL Geopandas Python 3.8 2021-07
+conda remove -y --name tlgpd --all
+conda create -y -n tlgpd python=3.8.10 pandas=1.1.0 numpy=1.18.1 scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex yapf pip ipykernel
 conda activate tlgpd
-conda install -y ipykernel
-pip install --upgrade autopep8==1.4.4
-setx GDAL_VERSION "3.0.4"
-pip install source/GDAL-3.0.4-cp37-cp37m-win_amd64.whl --upgrade
-pip install source/Shapely-1.7.0-cp37-cp37m-win_amd64.whl --upgrade
-pip install source/Fiona-1.8.13-cp37-cp37m-win_amd64.whl --upgrade
-pip install source/pyproj-2.5.0-cp37-cp37m-win_amd64.whl --upgrade
-pip install source/Rtree-0.9.4-cp37-cp37m-win_amd64.whl --upgrade
-pip install source/geopandas-0.7.0-py3-none-any.whl --upgrade
-pip install source/rasterio-1.1.3-cp37-cp37m-win_amd64.whl --upgrade
-pip install source/Cartopy-0.17.0-cp37-cp37m-win_amd64.whl --upgrade
-#pip install geopandas==0.7.0
+# geopandas
+setx GDAL_VERSION "3.3.1"
+pip install source/gpd/GDAL-3.3.1-cp38-cp38-win_amd64.whl --upgrade
+pip install source/gpd/Shapely-1.7.1-cp38-cp38-win_amd64.whl --upgrade
+pip install source/gpd/Fiona-1.8.20-cp38-cp38-win_amd64.whl --upgrade
+pip install source/gpd/pyproj-3.1.0-cp38-cp38-win_amd64.whl --upgrade
+pip install source/gpd/geopandas-0.9.0-py3-none-any.whl --upgrade
+pip install source/gpd/Rtree-0.9.7-cp38-cp38-win_amd64.whl --upgrade
+pip install source/gpd/rasterio-1.2.6-cp38-cp38-win_amd64.whl --upgrade
+pip install source/gpd/Cartopy-0.19.0.post1-cp38-cp38-win_amd64.whl --upgrade
 pip install contextily
 pip install matplotlib cycler kiwisolver descartes
 pip install seaborn folium branca scipy
-pip install xlrd xlsxwriter
+# dash
+pip install dash==1.20.0
+pip install dash-leaflet==0.1.16
+pip install dash-extensions==0.0.58
+pip install jsbeautifier==1.14.0
 ipython kernel install --user --name=tlgpd
 conda env export -n tlgpd -f tlgpd.yml
 conda deactivate

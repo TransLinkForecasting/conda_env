@@ -6,17 +6,17 @@ Each environment contains instruction to create a virtual environment, and insta
 
 ## Base Distribution
 
-The base version of Miniconda version is 4.8.3, you can obtain it from [Anaconda.com](https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.3-Windows-x86_64.exe).
+The base version of Miniconda is 4.9.2 with Python 3.8, you can obtain it from [Anaconda.com](https://repo.anaconda.com/miniconda/Miniconda3-py38_4.9.2-Windows-x86_64.exe).
 
 ## List of environments
 
 We currently supported the following environments. You can find instruction to install in the `.sh` files with corresponding environment name. The `.yml` file contains a list of package names and versions to help replicate environment set up. 
 
 * `base`: default Anaconda environment with jupyter notebook extension
-* `tlpy37`: common packages to work with SQL Server, data frames, charts and figures
-* `tlgpd`: geopandas to work with spatial files like shape files
+* `tlpy3`: common packages to work with SQL Server, data frames, charts and figures
+* `tlgpd`: common packages plus geopandas to work with spatial files like shape files
 * `rtm_docs`: mkdocs to build rtm docs
-* `popsim_master`: latest population synthesis tool, based on `tlpy37`
+* `popsim_master`: latest population synthesis tool, based on `tlgpd`
 * `popsim_skipint`: population synthesis tool with skip integer option enabled for survey weighting, based on Python 2. Used for Trip Diary 2017 and Evergreen Pre-Post Survey weighting
 * `EMAT`: environment based on `TMIP/EMAT`
 
