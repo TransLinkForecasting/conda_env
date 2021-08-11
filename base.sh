@@ -1,8 +1,8 @@
-# Based on Miniconda3-py38_4.9.2
+# Based on Miniconda3-py38_4.10.3
 conda activate base
-pip install --upgrade pip
-conda install -y ipykernel=4.10.0 ipython=7.9.0 ipython_genutils=0.2.0 ipywidgets=7.4.2 jupyter=1.0.0 jupyter_client=5.3.4 jupyter_console=6.0.0 jupyter_core=4.6.1 nbconvert=5.4.1 nbformat==4.4.0 notebook=6.0.2 yapf=0.31.0
-pip install --upgrade jupyter_contrib_nbextensions==0.5.1
+pip install --upgrade --user pip
+conda install -y ipykernel ipython ipython_genutils ipywidgets jupyter jupyter_client jupyter_console jupyter_core nbconvert nbformat notebook yapf
+pip install --user --upgrade jupyter_contrib_nbextensions
 jupyter nbextension enable codefolding/main
 jupyter nbextension enable code_prettify/yapf
 jupyter nbextension enable execute_time/ExecuteTime
