@@ -1,6 +1,6 @@
 # TL Geopandas Python 3.8 2021-07
 conda remove -y --name tlgpd --all
-conda create -y -n tlgpd python=3.8.10 pandas=1.1.0 numpy=1.18.1 scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex yapf pip ipykernel
+conda create -y -n tlgpd python=3.8.10 pandas=1.1.0 numpy=1.18.1 scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex yaml yapf pip ipykernel
 conda activate tlgpd
 # geopandas
 setx GDAL_VERSION "3.3.1"
