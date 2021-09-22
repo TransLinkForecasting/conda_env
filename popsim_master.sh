@@ -8,8 +8,19 @@ pip install activitysim==0.9.9.1
 # release binary: https://github.com/ActivitySim/populationsim/releases
 # dependencies: https://github.com/ActivitySim/populationsim/blob/master/setup.py
 pip install source/popsim/populationsim-0.5.zip
-# statsmodels
-pip install statsmodels==0.12.2
+# # statsmodels pypi stable
+# pip install statsmodels==0.12.2
+# # statsmodels v0.13.0.dev0 (+686) - building from git requires c++ build tool
+# pip install git+https://github.com/statsmodels/statsmodels.git@v0.13.0.dev0 --upgrade
+# # statsmodels v0.13.0.dev0 (+686) from nightly channel
+# pip install -i https://pypi.anaconda.org/scipy-wheels-nightly/simple statsmodels --upgrade
+# statsmodels v0.13.0.dev0 (+686) from downloaded nightly channel wheel file (recommended)
+pip install source/statsmodel/statsmodels-0.13.0.dev0+20201204182244_127.g36b7f5ddf-cp38-none-win_amd64.whl --upgrade
+# ordinal models
+pip install mord=0.6
+# choice models
+pip install biogeme=3.2.8
+pip install pylogit=1.0.1
 # cryptography
 pip install CryptPandas==0.1.1
 # geopandas
