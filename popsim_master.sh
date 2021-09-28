@@ -1,7 +1,10 @@
 # PopulationSim Python 3.8 2021-07
+# Last Updated on 2021-09-27 for population_sythesis 0.1.0
 conda remove -y --name popsim_master --all
 conda create -y -n popsim_master python=3.8.10 pandas=1.1.0 numpy=1.18.1 scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex pyyaml yapf pip ipykernel
 conda activate popsim_master
+# tlpytools latest
+pip install source/tlpytools/tlpytools-0.1.0-py3-none-any.whl --upgrade --force-reinstall
 # populationsim latest
 conda install -y pytables
 pip install activitysim==0.9.9.1
