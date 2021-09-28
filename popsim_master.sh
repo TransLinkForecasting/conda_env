@@ -1,6 +1,6 @@
 # PopulationSim Python 3.8 2021-07
 conda remove -y --name popsim_master --all
-conda create -y -n popsim_master python=3.8.10 pandas=1.1.0 numpy=1.18.1 scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex yaml yapf pip ipykernel
+conda create -y -n popsim_master python=3.8.10 pandas=1.1.0 numpy=1.18.1 scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex pyyaml yapf pip ipykernel
 conda activate popsim_master
 # populationsim latest
 conda install -y pytables
