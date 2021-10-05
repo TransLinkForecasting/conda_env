@@ -1,5 +1,5 @@
 # PopulationSim Python 3.8 2021-07
-# Last Updated on 2021-09-27 for population_sythesis 0.1.0
+# Last Updated on 2021-09-29 for population_sythesis 0.1.0
 conda remove -y --name popsim_master --all
 conda create -y -n popsim_master python=3.8.10 pandas=1.1.0 numpy=1.18.1 scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex pyyaml yapf pip ipykernel
 conda activate popsim_master
@@ -10,7 +10,7 @@ conda install -y pytables
 pip install activitysim==0.9.9.1
 # release binary: https://github.com/ActivitySim/populationsim/releases
 # dependencies: https://github.com/ActivitySim/populationsim/blob/master/setup.py
-pip install source/popsim/populationsim-0.5.zip
+pip install source/popsim/populationsim-0.5.1.zip --upgrade
 # # statsmodels pypi stable
 # pip install statsmodels==0.12.2
 # # statsmodels v0.13.0.dev0 (+686) - building from git requires c++ build tool
