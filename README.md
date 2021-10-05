@@ -16,8 +16,8 @@ We currently supported the following environments. You can find instruction to i
 * `tlpy3`: common packages to work with SQL Server, data frames, charts and figures
 * `tlgpd`: common packages plus geopandas to work with spatial files like shape files
 * `rtm_docs`: mkdocs to build rtm docs
-* `popsim_master`: latest population synthesis tool, based on `tlgpd`
+* `abm_dev`: latest population synthesis tool, based on `tlgpd`
 * `popsim_skipint`: population synthesis tool with skip integer option enabled for survey weighting, based on Python 2. Used for Trip Diary 2017 and Evergreen Pre-Post Survey weighting
-* `EMAT`: environment based on `TMIP/EMAT`
+* `emat_tmip`: environment based on `TMIP/EMAT`
 
 Learn more about conda environments here: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html

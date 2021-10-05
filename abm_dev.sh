@@ -1,8 +1,8 @@
 # PopulationSim Python 3.8 2021-07
 # Last Updated on 2021-09-29 for population_sythesis 0.1.0
-conda remove -y --name popsim_master --all
-conda create -y -n popsim_master python=3.8.10 pandas=1.1.0 numpy=1.18.1 scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex pyyaml yapf pip ipykernel
-conda activate popsim_master
+conda remove -y --name abm_dev --all
+conda create -y -n abm_dev python=3.8.10 pandas=1.1.0 numpy=1.18.1 scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex pyyaml yapf pip ipykernel
+conda activate abm_dev
 # tlpytools latest
 pip install source/tlpytools/tlpytools-0.1.0-py3-none-any.whl --upgrade --force-reinstall
 # populationsim latest
@@ -44,6 +44,6 @@ pip install dash==1.20.0
 pip install dash-leaflet==0.1.16
 pip install dash-extensions==0.0.58
 pip install jsbeautifier==1.14.0
-ipython kernel install --user --name=popsim_master
-conda env export -n popsim_master -f popsim_master.yml
+ipython kernel install --user --name=abm_dev
+conda env export -n abm_dev -f abm_dev.yml
 conda deactivate
