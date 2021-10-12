@@ -1,1 +1,0 @@
-see: https://anaconda.org/scipy-wheels-nightly/statsmodels/files
