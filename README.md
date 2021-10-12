@@ -21,3 +21,21 @@ We currently supported the following environments. You can find instruction to i
 * `emat_tmip`: environment based on `TMIP/EMAT`
 
 Learn more about conda environments here: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+
+## Building conda-pack for offline access
+
+[Conda-pack](https://conda.github.io/conda-pack/) is a tool for creating archives of conda environments which can then be distributed on offline systems.
+
+To package a conda environment, run the conda-pack command in your base environment:
+```bash
+conda install conda-pack
+conda pack -n my_env -o ./source/conda_pack/my_env.tar.gz
+```
+
+To set up the package in a new machine, locate your miniconda or ananconda folder and unpack:
+```bash
+cd /dir/to/miniconda3/envs/my_env
+source my_env/bin/activate
+conda-unpack
+source my_env/bin/deactivate
+```

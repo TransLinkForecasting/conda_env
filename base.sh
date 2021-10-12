@@ -2,6 +2,7 @@
 conda activate base
 pip install --upgrade --user pip
 conda install -y ipykernel ipython ipython_genutils ipywidgets jupyter jupyter_client jupyter_console jupyter_core nbconvert nbformat notebook yapf
+conda install -y conda-pack
 pip install --user --upgrade jupyter_contrib_nbextensions
 jupyter nbextension enable codefolding/main
 jupyter nbextension enable code_prettify/yapf
