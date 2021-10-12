@@ -6,9 +6,9 @@ dependencies:
   - abseil-cpp=20210324.2=h0e60522_0
   - activitysim=1.0.3=pyhd8ed1ab_0
   - addict=2.4.0=py39hcbf5309_0
-  - anyio=3.3.2=py39hcbf5309_0
+  - anyio=3.3.3=py39hcbf5309_0
   - appdirs=1.4.4=pyh9f0ad1d_0
-  - argon2-cffi=20.1.0=py39hb82d6ee_2
+  - argon2-cffi=21.1.0=py39hb82d6ee_0
   - arrow-cpp=5.0.0=py39he0f88eb_8_cpu
   - async_generator=1.10=py_0
   - atomicwrites=1.4.0=pyh9f0ad1d_0
@@ -31,21 +31,21 @@ dependencies:
   - brotlipy=0.7.0=py39hb82d6ee_1001
   - bzip2=1.0.8=h8ffe710_4
   - c-ares=1.17.2=h8ffe710_0
-  - ca-certificates=2021.5.30=h5b45459_0
+  - ca-certificates=2021.10.8=h5b45459_0
   - cairo=1.16.0=hb19e0ff_1008
-  - certifi=2021.5.30=py39hcbf5309_0
+  - certifi=2021.10.8=py39hcbf5309_0
   - cffi=1.14.6=py39h0878f49_1
   - cfitsio=3.470=h0af3d06_7
   - chardet=4.0.0=py39hcbf5309_1
   - charset-normalizer=2.0.0=pyhd8ed1ab_0
   - click=7.1.2=pyh9f0ad1d_0
   - click-plugins=1.1.1=py_0
-  - cligj=0.7.2=pyhd8ed1ab_0
+  - cligj=0.7.2=pyhd8ed1ab_1
   - cloudpickle=2.0.0=pyhd8ed1ab_0
   - colorama=0.4.4=pyh9f0ad1d_0
   - coverage=5.5=py39hb82d6ee_0
   - coveralls=3.2.0=pyhd8ed1ab_0
-  - cryptography=3.4.7=py39hd8d06c1_0
+  - cryptography=3.4.8=py39hd8d06c1_0
   - curl=7.79.1=h789b8ee_1
   - cycler=0.10.0=py_2
   - cytoolz=0.11.0=py39hb82d6ee_3
@@ -76,8 +76,8 @@ dependencies:
   - fribidi=1.0.10=h8d14728_0
   - future=0.18.2=py39hcbf5309_3
   - gdal=3.3.2=py39h7c9a9b1_4
-  - geopandas=0.10.0=pyhd8ed1ab_0
-  - geopandas-base=0.10.0=pyha770c72_0
+  - geopandas=0.10.1=pyhd8ed1ab_0
+  - geopandas-base=0.10.1=pyha770c72_0
   - geos=3.9.1=h39d44d4_2
   - geotiff=1.7.0=h350af67_3
   - getopt-win32=0.1=h8ffe710_0
@@ -91,7 +91,7 @@ dependencies:
   - gts=0.7.6=h7c369d9_2
   - harfbuzz=3.0.0=hc601d6f_1
   - hdf4=4.2.15=h0e5069d_3
-  - hdf5=1.12.1=nompi_h2a0e4a3_100
+  - hdf5=1.12.1=nompi_h2a0e4a3_101
   - icu=68.1=h0e60522_0
   - idna=3.1=pyhd3deb0d_0
   - importlib-metadata=4.8.1=py39hcbf5309_0
@@ -103,15 +103,15 @@ dependencies:
   - itsdangerous=2.0.1=pyhd8ed1ab_0
   - jbig=2.1=h8d14728_2003
   - jedi=0.18.0=py39hcbf5309_2
-  - jinja2=3.0.1=pyhd8ed1ab_0
-  - joblib=1.0.1=pyhd8ed1ab_0
+  - jinja2=3.0.2=pyhd8ed1ab_0
+  - joblib=1.1.0=pyhd8ed1ab_0
   - jpeg=9d=h8ffe710_0
   - json5=0.9.5=pyh9f0ad1d_0
-  - jsonschema=4.0.1=pyhd8ed1ab_0
+  - jsonschema=4.1.0=pyhd8ed1ab_0
   - jupyter_client=7.0.6=pyhd8ed1ab_0
   - jupyter_core=4.8.1=py39hcbf5309_0
   - jupyter_server=1.11.1=pyhd8ed1ab_0
-  - jupyterlab=3.1.17=pyhd8ed1ab_0
+  - jupyterlab=3.1.18=pyhd8ed1ab_0
   - jupyterlab_pygments=0.1.2=pyh9f0ad1d_0
   - jupyterlab_server=2.8.2=pyhd8ed1ab_0
   - kealib=1.4.14=h8995ca9_3
@@ -137,14 +137,14 @@ dependencies:
   - liblapack=3.9.0=11_win64_mkl
   - libnetcdf=4.8.1=nompi_h1cc8e9d_101
   - libpng=1.6.37=h1d00b33_2
-  - libpq=13.3=hfcc5ef8_0
+  - libpq=13.3=hfcc5ef8_1
   - libprotobuf=3.18.1=h7755175_0
   - librttopo=1.1.0=hb340de5_6
   - libsodium=1.0.18=h8d14728_1
   - libspatialindex=1.9.3=h39d44d4_4
   - libspatialite=5.0.1=h6a90f17_9
   - libssh2=1.10.0=h680486a_2
-  - libthrift=0.15.0=h636ae23_0
+  - libthrift=0.15.0=h636ae23_1
   - libtiff=4.3.0=h0c97f57_1
   - libutf8proc=2.6.1=hcb41399_0
   - libwebp=1.2.1=h57928b3_0
@@ -203,12 +203,12 @@ dependencies:
   - pcre=8.45=h0e60522_0
   - pickleshare=0.7.5=py_1003
   - pillow=8.3.2=py39h916092e_0
-  - pip=21.2.4=pyhd8ed1ab_0
+  - pip=21.3=pyhd8ed1ab_0
   - pixman=0.40.0=h8ffe710_0
   - pluggy=1.0.0=py39hcbf5309_1
   - poppler=21.09.0=h24fffdf_3
   - poppler-data=0.4.11=hd8ed1ab_0
-  - postgresql=13.3=h1c22c4f_0
+  - postgresql=13.3=h1c22c4f_1
   - proj=8.1.1=h1cfcee9_2
   - prometheus_client=0.11.0=pyhd8ed1ab_0
   - prompt-toolkit=3.0.20=pyha770c72_0
@@ -216,7 +216,7 @@ dependencies:
   - pthread-stubs=0.4=hcd874cb_1001
   - py=1.10.0=pyhd3deb0d_0
   - pyarrow=5.0.0=py39hf9247be_8_cpu
-  - pycodestyle=2.7.0=pyhd8ed1ab_0
+  - pycodestyle=2.8.0=pyhd8ed1ab_0
   - pycparser=2.20=pyh9f0ad1d_2
   - pydot=1.4.2=py39hcbf5309_0
   - pygments=2.10.0=pyhd8ed1ab_0
@@ -265,7 +265,7 @@ dependencies:
   - sqlalchemy=1.4.25=py39hb82d6ee_0
   - sqlite=3.36.0=h8ffe710_2
   - statsmodels=0.13.0=py39h5d4886f_0
-  - sympy=1.8=py39hcbf5309_0
+  - sympy=1.9=py39hcbf5309_0
   - tbb=2021.3.0=h2d74725_0
   - terminado=0.12.1=py39hcbf5309_0
   - testpath=0.5.0=pyhd8ed1ab_0
