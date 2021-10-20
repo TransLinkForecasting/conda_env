@@ -21,10 +21,11 @@ pip install statsmodels==0.13.0
 # cryptography
 pip install CryptPandas==0.1.1
 # dash
-pip install dash==1.20.0
-pip install dash-leaflet==0.1.16
-pip install dash-extensions==0.0.58
-pip install jsbeautifier==1.14.0
+pip install plotly==5.3.1
+pip install dash==2.0.0
+pip install dash-leaflet
+pip install dash-extensions
+pip install jsbeautifier
 # ipython kernel
 ipython kernel install --user --name=abm_dev
 conda env export -n abm_dev -f abm_dev.yml
