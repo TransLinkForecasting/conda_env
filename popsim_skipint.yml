@@ -47,4 +47,3 @@ dependencies:
     - pyyaml==3.13
     - toolz==0.10.0
     - zbox==1.2.0
-prefix: C:\Users\bwen\Miniconda3\envs\popsim_skipint

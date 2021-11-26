@@ -148,4 +148,3 @@ dependencies:
     - urllib3==1.26.7
     - werkzeug==2.0.2
     - xyzservices==2021.11.0
-prefix: C:\Users\bwen\Miniconda3\envs\tlgpd

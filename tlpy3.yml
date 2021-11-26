@@ -103,4 +103,3 @@ dependencies:
     - cryptpandas==0.1.1
     - pyarrow==6.0.1
     - pycparser==2.21
-prefix: C:\Users\bwen\Miniconda3\envs\tlpy3
