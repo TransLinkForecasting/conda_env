@@ -1,6 +1,6 @@
-# TL Python 3.8 2021-07
+# TL Python 3.9 2021-11
 conda remove -y --name tlpy3 --all
-conda create -y -n tlpy3 python=3.8.10 pandas=1.1.0 numpy=1.18.1 scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex pyyaml yapf pip ipykernel
+conda create -y -n tlpy3 python=3.9 pandas numpy scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex pyyaml yapf pip ipykernel
 conda activate tlpy3
 # cryptography
 pip install CryptPandas==0.1.1
