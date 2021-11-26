@@ -6,7 +6,7 @@ Each environment contains instruction to create a virtual environment, and insta
 
 ## Base Distribution
 
-The base version of Miniconda is 4.10.3 with Python 3.8, you can obtain it from [Anaconda.com](https://repo.anaconda.com/miniconda/Miniconda3-py38_4.10.3-Windows-x86_64.exe).
+The base version of Miniconda is 4.10.3 with Python 3.8, you can obtain it from [Anaconda.com](https://repo.anaconda.com/miniconda/Miniconda3-py38_4.10.3-Windows-x86_64.exe). Note that while your base distribution is of a specific version of python, you can create and build any version of python for a specific conda environment.
 
 ## Getting started
 
