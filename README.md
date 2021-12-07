@@ -49,6 +49,8 @@ ipython kernel install --user --name=abm_dev
 Environment used for SPA data processing
 ```bash
 conda env create -n abm_spa -f abm_spa.yml
+conda activate abm_spa
+ipython kernel install --user --name=abm_spa
 ```
 
 ### tlpy3
