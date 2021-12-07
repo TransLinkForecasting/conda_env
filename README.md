@@ -44,6 +44,13 @@ conda env update --file abm_dev.yml
 ipython kernel install --user --name=abm_dev
 ```
 
+### abm_spa
+
+Environment used for SPA data processing
+```bash
+conda env create -n abm_spa -f abm_spa.yml
+```
+
 ### tlpy3
 
 common packages to work with SQL Server, charts and figures
