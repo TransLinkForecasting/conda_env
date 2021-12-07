@@ -15,6 +15,7 @@ To bump versions and then create a new build of the environment, run the bash (`
 First, you must clone a copy of this repository
 ```bash
 git clone --depth 1 https://github.com/TransLinkForecasting/conda_env.git
+cd conda_env
 ```
 
 Then, choose the environments you wish to install; the following environments are supported:
