@@ -4,7 +4,7 @@ conda remove -y --name abm_dev --all
 conda create -y -n abm_dev -c conda-forge --override-channels python=3.9 activitysim=1.0.4 larch pytables pandas numpy scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex pyyaml yapf pip ipykernel
 conda activate abm_dev
 # tlpytools latest
-pip install source/tlpytools/tlpytools-0.1.0-py3-none-any.whl --upgrade --force-reinstall
+pip install tlpytools --upgrade
 # populationsim latest, dependencies: https://github.com/ActivitySim/populationsim/blob/master/setup.py
 pip install source/popsim/populationsim-0.5.1.zip --upgrade
 # asim testing

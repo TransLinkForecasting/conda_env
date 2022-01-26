@@ -37,10 +37,8 @@ jupyter nbextension enable comment-uncomment/main
 
 Latest ABM development tools with populationsim and more
 ```bash
-conda create -y -n abm_dev python=3.9.7 pip
+conda env create -n abm_dev -f abm_dev.yml
 conda activate abm_dev
-pip install source/tlpytools/tlpytools-0.1.0-py3-none-any.whl --upgrade --force-reinstall
-conda env update --file abm_dev.yml
 ipython kernel install --user --name=abm_dev
 ```
 
