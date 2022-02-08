@@ -42,6 +42,11 @@ conda activate abm_dev
 ipython kernel install --user --name=abm_dev
 ```
 
+After initial set up, to update this environment:
+```bash
+conda env update -n abm_dev -f abm_dev.yml
+```
+
 ### abm_spa
 
 Environment used for SPA data processing
