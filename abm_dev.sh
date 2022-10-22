@@ -1,32 +1,48 @@
 # ABM Development - Python 3.9 2021-11
 # Last Updated on 2021-09-29 for population_sythesis 0.1.0
 conda remove -y --name abm_dev --all
-conda create -y -n abm_dev -c conda-forge --override-channels python=3.9 activitysim=1.0.4 larch pytables pandas numpy scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex pyyaml yapf pip ipykernel
+# create development environment with asim dependencies installed (base, test, estimation, and notebooks)
+conda create -y -n abm_dev -c conda-forge --override-channels python=3.7.6 "cytoolz>=0.8.1" "numpy>=1.16.1,<=1.21" "pandas>=1.1.0" "psutil>=4.1" "pyarrow>=2.0" "numba>0.51.2" "pytables>=3.5.1,<3.7" "pyyaml>=5.1" "openmatrix>=0.3.4.1" "requests>=2.7" "larch=5.5.10" pytest pytest-cov coveralls pycodestyle pytest-regressions jupyterlab matplotlib descartes pandasql scipy seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex yapf black pip ipykernel
+# activate environment
 conda activate abm_dev
+# install activitysim
+pip install activitysim==1.1.0 --upgrade
 # tlpytools latest
 pip install tlpytools --upgrade
 # populationsim latest, dependencies: https://github.com/ActivitySim/populationsim/blob/master/setup.py
 pip install source/popsim/populationsim-0.5.1.zip --upgrade
-# asim testing
-conda install -y -n abm_dev -c conda-forge --override-channels pytest pytest-cov coveralls pycodestyle pytest-regressions
-# asim extra packages
-conda install -y -n abm_dev -c conda-forge --override-channels jupyterlab matplotlib geopandas descartes
-# additional conda packages
-conda install -y -n abm_dev -c conda-forge --override-channels mord=0.6 pylogit=1.0.1
+# additional conda packages, note:
+# - mord and pylogit - are for modeling
+# - contextily folium branca cycler kiwisolver - are for GIS
+conda install -y -n abm_dev -c conda-forge --override-channels mord=0.6 pylogit=1.0.1 contextily folium branca cycler kiwisolver
 # choice models
 pip install biogeme==3.2.8
 # statsmodels pypi stable
-pip install statsmodels==0.13.0
+pip install statsmodels==0.13.2
 # opionally, from nightly: https://anaconda.org/scipy-wheels-nightly/statsmodels/files
 # cryptography
-pip install CryptPandas==0.1.1
+pip install CryptPandas==1.0.0
 # dash
-pip install plotly==5.3.1
-pip install dash==2.0.0
-pip install dash-leaflet
+pip install plotly==5.10.0
+pip install dash==2.6.2
 pip install dash-extensions
-pip install jsbeautifier
+pip install dash-leaflet
 # ipython kernel
 ipython kernel install --user --name=abm_dev
+# export environment
 conda env export -n abm_dev -f abm_dev.yml
+# install geopandas precompiled wheels
+setx GDAL_VERSION "3.3.3"
+pip install source/gpd/GDAL-3.3.3-cp37-cp37m-win_amd64.whl --upgrade
+pip install source/gpd/Shapely-1.8.1.post1-cp37-cp37m-win_amd64.whl --upgrade
+pip install munch==2.5.0 --upgrade --force-reinstall --no-dependencies
+pip install source/gpd/Fiona-1.8.20-cp37-cp37m-win_amd64.whl --upgrade
+pip install source/gpd/pyproj-3.2.1-cp37-cp37m-win_amd64.whl --upgrade
+pip install source/gpd/geopandas-0.10.2-py2.py3-none-any.whl --upgrade
+pip install source/gpd/Rtree-0.9.7-cp37-cp37m-win_amd64.whl --upgrade
+pip install click==8.1.3 --upgrade
+pip install source/gpd/rasterio-1.2.6-cp37-cp37m-win_amd64.whl --upgrade --force-reinstall --no-dependencies
+pip install pyshp==2.3.1 --upgrade
+pip install source/gpd/Cartopy-0.20.2-cp37-cp37m-win_amd64.whl --upgrade --force-reinstall --no-dependencies
+# deactivate environment
 conda deactivate
