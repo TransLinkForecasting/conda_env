@@ -37,20 +37,29 @@ jupyter nbextension enable comment-uncomment/main
 
 Latest ABM development tools with populationsim and more
 ```bash
+conda remove -y --name abm_dev --all
 conda env create -n abm_dev -f abm_dev.yml
 conda activate abm_dev
+setx GDAL_VERSION "3.3.3"
+pip install source/gpd/GDAL-3.3.3-cp37-cp37m-win_amd64.whl --upgrade
+pip install source/gpd/Shapely-1.8.1.post1-cp37-cp37m-win_amd64.whl --upgrade
+pip install munch==2.5.0 --upgrade --force-reinstall --no-dependencies
+pip install source/gpd/Fiona-1.8.20-cp37-cp37m-win_amd64.whl --upgrade
+pip install source/gpd/pyproj-3.2.1-cp37-cp37m-win_amd64.whl --upgrade
+pip install source/gpd/geopandas-0.10.2-py2.py3-none-any.whl --upgrade
+pip install source/gpd/Rtree-0.9.7-cp37-cp37m-win_amd64.whl --upgrade
+pip install click==8.1.3 --upgrade
+pip install source/gpd/rasterio-1.2.6-cp37-cp37m-win_amd64.whl --upgrade --force-reinstall --no-dependencies
+pip install pyshp==2.3.1 --upgrade
+pip install source/gpd/Cartopy-0.20.2-cp37-cp37m-win_amd64.whl --upgrade --force-reinstall --no-dependencies
 ipython kernel install --user --name=abm_dev
-```
-
-After initial set up, to update this environment:
-```bash
-conda env update -n abm_dev -f abm_dev.yml
 ```
 
 ### abm_spa
 
 Environment used for SPA data processing
 ```bash
+conda remove -y --name abm_spa --all
 conda env create -n abm_spa -f abm_spa.yml
 conda activate abm_spa
 ipython kernel install --user --name=abm_spa
@@ -60,6 +69,7 @@ ipython kernel install --user --name=abm_spa
 
 common packages to work with SQL Server, charts and figures
 ```bash
+conda remove -y --name tlpy3 --all
 conda env create -f tlpy3.yml
 ```
 
@@ -67,7 +77,9 @@ conda env create -f tlpy3.yml
 
 common packages plus geopandas to work with spatial files like shape files
 ```bash
+conda remove -y --name tlgpd --all
 conda create -y -n tlgpd python=3.9.7 pip
+conda activate tlgpd
 # install geopandas precompiled wheels
 setx GDAL_VERSION "3.3.3"
 pip install source/gpd/GDAL-3.3.3-cp39-cp39-win_amd64.whl --upgrade
