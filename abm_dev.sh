@@ -29,7 +29,7 @@ pip install dash-leaflet
 # ipython kernel
 ipython kernel install --user --name=abm_dev
 # export environment
-conda env export -n abm_dev -f abm_dev.yml
+conda env export -n abm_dev -f abm_dev.yml --no-builds
 # install geopandas precompiled wheels
 setx GDAL_VERSION "3.3.3"
 pip install source/gpd/GDAL-3.3.3-cp39-cp39-win_amd64.whl --upgrade
