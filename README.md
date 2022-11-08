@@ -52,6 +52,27 @@ pip install source/gpd/Cartopy-0.20.1-cp39-cp39-win_amd64.whl --upgrade
 ipython kernel install --user --name=abm_dev
 ```
 
+#### editable install for ActivitySim
+
+A typical installation of Python Package will not allow developers to debug or perform live update on the source code of the package. In order to do this, a editable install can be done. Be mindful that any changes performed on the source (activitysim) package must be merged back into either the main repository in order for it to be available with regular installs, otherwise, a custom version of the package must always be used. As such, changes to the source code for an editable install should be done with care and be communicated with other developers to avoid potential errors.
+
+To perform an editable install of a python package, you must first clone the source code, in this case, for activitysim:
+
+```
+git clone -b main https://github.com/TransLinkForecasting/activitysim.git
+```
+
+Then within the cloned local directory, navigate to the correct environment and perform the editable install:
+
+```
+cd activitysim
+conda activate abm_dev
+pip install -e ./
+```
+
+After the install, you must not move your local activitysim directory. The source code within this directory will be used when calling activitysim, and any updates to the code within this directory will be reflected immediately in your environment.
+
+
 ### abm_spa
 
 Environment used for SPA data processing
