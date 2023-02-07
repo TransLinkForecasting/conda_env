@@ -1,23 +1,22 @@
-# ABM Development - Python 3.9 2022-10
+# ABM Development - Python 3.9 2023-02
 conda remove -y --name abm_dev --all
 # create development environment with asim dependencies installed (base, test, estimation, and notebooks)
-conda create -y -n abm_dev -c conda-forge --override-channels python=3.9 "cytoolz>=0.8.1" "numpy>=1.16.1,<=1.21" "pandas>=1.1.0" "psutil>=4.1" "pyarrow>=2.0" "numba>0.51.2" "pytables>=3.5.1,<3.7" "pyyaml>=5.1" "openmatrix>=0.3.4.1" "requests>=2.7" larch pytest pytest-cov coveralls pycodestyle pytest-regressions jupyterlab matplotlib descartes pandasql scipy seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex yapf black pip ipykernel
+conda create -y -n abm_dev -c conda-forge --override-channels python=3.9 "cytoolz>=0.8.1" "numba>=0.55.2" "numpy>=1.16.1" "openmatrix>=0.3.4.1" "orca>=1.6" "pandas>=1.1.0" "psutil>=4.1" "pyarrow>=2.0" "pypyr>=5.3" "pyyaml>=5.1" "requests>=2.7" "scikit-learn>=1.1" "sharrow>=2.5" "simwrapper>1.7" "pytables>=3.5.1" "xarray>=0.21" larch pytest pytest-cov coveralls pycodestyle pytest-regressions jupyterlab matplotlib descartes pandasql scipy seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn-intelex yapf pip ipykernel
 # activate environment
 conda activate abm_dev
 # install activitysim
-pip install activitysim==1.1.3 --upgrade
-# tlpytools latest
-pip install tlpytools --upgrade
+pip install "activitysim==1.2.0" --upgrade
 # populationsim latest, dependencies: https://github.com/ActivitySim/populationsim/blob/master/setup.py
-pip install source/popsim/populationsim-0.5.1.zip --upgrade
+# pip install source/popsim/populationsim-0.5.1.zip --upgrade
+pip install "populationsim==0.5.1" --upgrade
 # additional conda packages, note:
 # - mord and pylogit - are for modeling
 # - contextily folium branca cycler kiwisolver - are for GIS
 conda install -y -n abm_dev -c conda-forge --override-channels mord=0.6 pylogit=1.0.1 contextily folium branca cycler kiwisolver
 # choice models
-pip install biogeme==3.2.8
+pip install biogeme==3.2.10
 # statsmodels pypi stable
-pip install statsmodels==0.13.2
+pip install statsmodels==0.13.5
 # opionally, from nightly: https://anaconda.org/scipy-wheels-nightly/statsmodels/files
 # cryptography
 pip install CryptPandas==1.0.0
@@ -26,6 +25,8 @@ pip install plotly==5.10.0
 pip install dash==2.6.2
 pip install dash-extensions
 pip install dash-leaflet
+# tlpytools latest
+pip install tlpytools --upgrade
 # ipython kernel
 ipython kernel install --user --name=abm_dev
 # export environment
