@@ -6,6 +6,8 @@ conda create -y -n abm_dev -c conda-forge --override-channels python=3.9 "cytool
 conda activate abm_dev
 # install activitysim
 pip install "activitysim==1.2.0" --upgrade
+# optionally, override old versions of activitysim with development version
+pip install source/activitysim/activitysim-1.2.1.dev8+gd876d08c-py3-none-any.whl --upgrade
 # populationsim latest, dependencies: https://github.com/ActivitySim/populationsim/blob/master/setup.py
 # pip install source/popsim/populationsim-0.5.1.zip --upgrade
 pip install "populationsim==0.5.1" --upgrade
@@ -29,6 +31,7 @@ pip install dash-leaflet
 pip install tlpytools --upgrade
 # ipython kernel
 ipython kernel install --user --name=abm_dev
+# pip install jupyter_contrib_nbextensions
 # export environment
 conda env export -n abm_dev -f abm_dev.yml --no-builds
 # install geopandas precompiled wheels
