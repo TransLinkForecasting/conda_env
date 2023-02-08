@@ -40,6 +40,9 @@ Latest ABM development tools with populationsim and more
 conda remove -y --name abm_dev --all
 conda env create -n abm_dev -f abm_dev.yml
 conda activate abm_dev
+# optionally, override old versions of activitysim with development version
+pip install source/activitysim/activitysim-1.2.1.dev7+g08c7ab2f.d20230208-py3-none-any.whl --upgrade
+# install geopandas and its dependencies
 setx GDAL_VERSION "3.3.3"
 pip install source/gpd/GDAL-3.3.3-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/Shapely-1.8.0-cp39-cp39-win_amd64.whl --upgrade
