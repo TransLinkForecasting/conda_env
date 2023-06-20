@@ -1,7 +1,7 @@
 # TL Geopandas Python 3.8 2021-07
-conda remove -y --name tlgpd --all
-conda create -y -n tlgpd python=3.9 pandas numpy scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex pyyaml yapf pip ipykernel
-conda activate tlgpd
+mamba remove -y --name tlgpd --all
+mamba create -y -n tlgpd python=3.9 pandas numpy scipy matplotlib seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn scikit-learn-intelex pyyaml yapf pip ipykernel
+mamba activate tlgpd
 # install geopandas precompiled wheels
 setx GDAL_VERSION "3.3.3"
 pip install source/gpd/GDAL-3.3.3-cp39-cp39-win_amd64.whl --upgrade
@@ -22,5 +22,5 @@ pip install dash-leaflet==0.1.16
 pip install dash-extensions==0.0.58
 pip install jsbeautifier==1.14.0
 ipython kernel install --user --name=tlgpd
-conda env export -n tlgpd -f tlgpd.yml
-conda deactivate
+mamba env export -n tlgpd -f tlgpd.yml
+mamba deactivate
