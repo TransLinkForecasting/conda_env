@@ -6,7 +6,7 @@ Each environment contains instruction to create a virtual environment, and insta
 
 ## Base Distribution
 
-The base distribution currently used is Miniforge 23.1.0-1 Python 3.10, you can obtain it from [miniforge on GitHub](https://github.com/conda-forge/miniforge/releases/download/23.1.0-1/Miniforge3-23.1.0-1-Windows-x86_64.exe). Note that while your base distribution is of a specific version of python, you can create and build any version of python for a specific conda environment. Mamba by miniforge is a open source alternative to Anaconda that is faster at solving environment. Similar to Conda / Anaconda, Mamba downloads and installs packages from conda package repositories.
+The base distribution currently used is Mambaforge 23.1.0-1 Python 3.10, you can obtain it from [miniforge on GitHub](https://github.com/conda-forge/miniforge/releases/download/23.1.0-1/Mambaforge-pypy3-23.1.0-1-Windows-x86_64.exe). Note that while your base distribution is of a specific version of python, you can create and build any version of python for a specific conda environment. Mambaforge is a specific distribution of miniforge that uses a faster solver called mamba. It is an open source alternative to Anaconda. Similar to Conda / Anaconda, Mamba downloads and installs packages from conda package repositories.
 
 ## Getting started
 
