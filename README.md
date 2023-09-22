@@ -42,6 +42,12 @@ Latest ABM development tools with ActivitySim, PopulationSim, and SciPy tools.
 mamba remove -y --name abm_dev --all
 mamba env create -n abm_dev -f abm_dev.yml
 mamba activate abm_dev
+# # install development version of activitysim (optional)
+# pip uninstall activitysim
+# pip install git+https://github.com/TransLinkForecasting/activitysim@main --upgrade
+# install development version of populationsim (required as of Sep 22, 2023)
+pip uninstall populationsim
+pip install git+https://github.com/TransLinkForecasting/populationsim@master --upgrade
 # install geopandas and its dependencies
 setx GDAL_VERSION "3.3.3"
 pip install source/gpd/GDAL-3.3.3-cp39-cp39-win_amd64.whl --upgrade

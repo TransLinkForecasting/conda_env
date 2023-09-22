@@ -10,9 +10,10 @@ mamba activate abm_dev
 pip install "activitysim==1.2.1" --upgrade
 # # optionally, override old versions of activitysim with development version
 # pip install source/activitysim/activitysim-1.2.1.dev8+gd876d08c-py3-none-any.whl --upgrade
-# populationsim latest, dependencies: https://github.com/ActivitySim/populationsim/blob/master/setup.py
+# # install populationsim latest, dependencies: https://github.com/ActivitySim/populationsim/blob/master/setup.py
 # pip install source/popsim/populationsim-0.5.1.zip --upgrade
-pip install "populationsim==0.5.1" --upgrade
+# or install development version of populationsim
+pip install git+https://github.com/TransLinkForecasting/populationsim@master --upgrade
 # additional mamba packages, note:
 # - mord and pylogit - are for modeling
 # - contextily folium branca cycler kiwisolver - are for GIS
