@@ -6,7 +6,7 @@ Each environment contains instruction to create a virtual environment, and insta
 
 ## Base Distribution
 
-The base version of Miniconda is 4.10.3 with Python 3.8, you can obtain it from [Anaconda.com](https://repo.anaconda.com/miniconda/Miniconda3-py38_4.10.3-Windows-x86_64.exe). Note that while your base distribution is of a specific version of python, you can create and build any version of python for a specific conda environment.
+The base distribution currently used is Mambaforge 23.1.0-1 Python 3.10, you can obtain it from [miniforge on GitHub](https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Windows-x86_64.exe). Note that while your base distribution is of a specific version of python, you can create and build any version of python for a specific conda environment. Mambaforge is a specific distribution of miniforge that uses a faster solver called mamba. It is an open source alternative to Anaconda. Similar to Conda / Anaconda, Mamba downloads and installs packages from conda package repositories.
 
 ## Getting started
 
@@ -23,9 +23,10 @@ Then, choose the environments you wish to install; the following environments ar
 ### base
 
 Default Anaconda environment with jupyter notebook extension, install additional packages with script below.
+
 ```bash
-conda install -y ipykernel ipython ipython_genutils ipywidgets jupyter jupyter_client jupyter_console jupyter_core nbconvert nbformat notebook yapf
-conda install -y conda-pack
+mamba install -y ipykernel ipython ipython_genutils ipywidgets jupyter jupyter_client jupyter_console jupyter_core nbconvert nbformat notebook yapf
+mamba install -y conda-pack
 pip install --user --upgrade jupyter_contrib_nbextensions
 jupyter nbextension enable codefolding/main
 jupyter nbextension enable code_prettify/yapf
@@ -35,13 +36,18 @@ jupyter nbextension enable comment-uncomment/main
 
 ### abm_dev
 
-Latest ABM development tools with populationsim and more
+Latest ABM development tools with ActivitySim, PopulationSim, and SciPy tools.
+
 ```bash
-conda remove -y --name abm_dev --all
-conda env create -n abm_dev -f abm_dev.yml
-conda activate abm_dev
-# optionally, override old versions of activitysim with development version
-pip install source/activitysim/activitysim-1.2.1.dev8+gd876d08c-py3-none-any.whl --upgrade
+mamba remove -y --name abm_dev --all
+mamba env create -n abm_dev -f abm_dev.yml
+mamba activate abm_dev
+# # install development version of activitysim (optional)
+# pip uninstall activitysim
+# pip install git+https://github.com/TransLinkForecasting/activitysim@main --upgrade
+# install development version of populationsim (required as of Sep 22, 2023)
+pip uninstall populationsim
+pip install git+https://github.com/TransLinkForecasting/populationsim@master --upgrade
 # install geopandas and its dependencies
 setx GDAL_VERSION "3.3.3"
 pip install source/gpd/GDAL-3.3.3-cp39-cp39-win_amd64.whl --upgrade
@@ -69,7 +75,7 @@ Then within the cloned local directory, navigate to the correct environment and 
 
 ```
 cd activitysim
-conda activate abm_dev
+mamba activate abm_dev
 pip install -e ./
 ```
 
@@ -80,9 +86,9 @@ After the install, you must not move your local activitysim directory. The sourc
 
 Environment used for SPA data processing
 ```bash
-conda remove -y --name abm_spa --all
-conda env create -n abm_spa -f abm_spa.yml
-conda activate abm_spa
+mamba remove -y --name abm_spa --all
+mamba env create -n abm_spa -f abm_spa.yml
+mamba activate abm_spa
 ipython kernel install --user --name=abm_spa
 ```
 
@@ -90,17 +96,17 @@ ipython kernel install --user --name=abm_spa
 
 common packages to work with SQL Server, charts and figures
 ```bash
-conda remove -y --name tlpy3 --all
-conda env create -f tlpy3.yml
+mamba remove -y --name tlpy3 --all
+mamba env create -f tlpy3.yml
 ```
 
 ### tlgpd
 
 common packages plus geopandas to work with spatial files like shape files
 ```bash
-conda remove -y --name tlgpd --all
-conda create -y -n tlgpd python=3.9.7 pip
-conda activate tlgpd
+mamba remove -y --name tlgpd --all
+mamba create -y -n tlgpd python=3.9.7 pip
+mamba activate tlgpd
 # install geopandas precompiled wheels
 setx GDAL_VERSION "3.3.3"
 pip install source/gpd/GDAL-3.3.3-cp39-cp39-win_amd64.whl --upgrade
@@ -111,28 +117,28 @@ pip install source/gpd/geopandas-0.10.2-py2.py3-none-any.whl --upgrade
 pip install source/gpd/Rtree-0.9.7-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/rasterio-1.2.10-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/Cartopy-0.20.1-cp39-cp39-win_amd64.whl --upgrade
-conda env update --file tlgpd.yml
+mamba env update --file tlgpd.yml
 ```
 
 ### popsim_skipint
 
 survey weighting tool using populationsim with skip integer option enabled, based on Python 2.7. Used for Trip Diary 2017 and Evergreen Pre-Post Survey weighting.
 ```bash
-conda create -y -n popsim_skipint python=2.7.16 pip
+mamba create -y -n popsim_skipint python=2.7.16 pip
 pip install source/popsim/RSGInc-populationsim-698058b.zip
-conda env update --file popsim_skipint.yml
+mamba env update --file popsim_skipint.yml
 ```
 
 ### emat_tmip
 
 Environment based on `TMIP/EMAT`. No version-fixed yaml needed.
 ```bash
-conda install -n base -c defaults conda anaconda-client
-conda env create TMIP/EMAT
-conda activate EMAT
+mamba install -n base -c defaults conda anaconda-client
+mamba env create TMIP/EMAT
+mamba activate EMAT
 ipython kernel install --user --name=EMAT
-conda env export -n EMAT -f EMAT.yml
-conda deactivate
+mamba env export -n EMAT -f EMAT.yml
+mamba deactivate
 ```
 
 Learn more about conda environments here: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
@@ -143,7 +149,7 @@ Learn more about conda environments here: https://docs.conda.io/projects/conda/e
 
 To package a conda environment, run the conda-pack command in your base environment:
 ```bash
-conda install conda-pack
+mamba install conda-pack
 conda pack -n my_env -o ./source/conda_pack/my_env.tar.gz
 ```
 
