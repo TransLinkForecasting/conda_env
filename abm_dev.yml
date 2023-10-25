@@ -310,7 +310,7 @@ dependencies:
   - snuggs=1.4.7
   - soupsieve=2.3.2.post1
   - sparse=0.13.0
-  - sqlalchemy=2.0.2
+  - sqlalchemy=1.4.42
   - sqlite=3.40.0
   - stack_data=0.6.2
   - statsmodels=0.13.5

@@ -29,6 +29,7 @@ pip install dash-extensions
 pip install dash-leaflet
 # tlpytools latest
 pip install tlpytools --upgrade
+pip install --upgrade 'sqlalchemy<2.0'
 # ipython kernel
 ipython kernel install --user --name=abm_dev
 # pip install jupyter_contrib_nbextensions
