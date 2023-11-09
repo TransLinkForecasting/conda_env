@@ -6,10 +6,10 @@ mamba remove -y --name abm_dev --all
 mamba create -y -n abm_dev -c conda-forge --override-channels python=3.9 "cytoolz>=0.8.1" "numba>=0.55.2" "numpy>=1.16.1" "openmatrix>=0.3.4.1" "orca>=1.6" "pandas>=1.1.0,<1.5" "psutil>=4.1" "pyarrow>=2.0" "pypyr>=5.3" "pyyaml>=5.1" "requests>=2.7" "scikit-learn>=1.1" "sharrow>=2.5" "simwrapper>1.7" "pytables>=3.5.1" "xarray>=0.21" larch statsmodels pytest pytest-cov coveralls pycodestyle pytest-regressions jupyterlab matplotlib descartes pandasql scipy seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn-intelex yapf pip ipykernel
 # activate environment
 mamba activate abm_dev
-# install activitysim
-pip install "activitysim==1.2.1" --upgrade
-# # optionally, override old versions of activitysim with development version
-# pip install source/activitysim/activitysim-1.2.1.dev8+gd876d08c-py3-none-any.whl --upgrade
+# # install activitysim
+# pip install "activitysim==1.2.1" --upgrade
+# optionally, override old versions of activitysim with development version
+pip install source/activitysim/activitysim-1.2.2.dev7+g681f7a9f-py3-none-any.whl --upgrade
 # # install populationsim latest, dependencies: https://github.com/ActivitySim/populationsim/blob/master/setup.py
 # pip install source/popsim/populationsim-0.5.1.zip --upgrade
 # or install development version of populationsim
