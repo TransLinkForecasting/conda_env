@@ -42,8 +42,9 @@ Latest ABM development tools with ActivitySim, PopulationSim, and SciPy tools.
 mamba remove -y --name abm_dev --all
 mamba env create -n abm_dev -f abm_dev.yml
 mamba activate abm_dev
-# # install development version of activitysim (optional)
-# pip uninstall activitysim
+# install development version of activitysim (optional)
+pip uninstall activitysim
+pip install source/activitysim/activitysim-1.2.2.dev7+g681f7a9f-py3-none-any.whl --upgrade
 # pip install git+https://github.com/TransLinkForecasting/activitysim@main --upgrade
 # install development version of populationsim (required as of Sep 22, 2023)
 pip uninstall populationsim
