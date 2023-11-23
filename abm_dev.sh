@@ -9,7 +9,7 @@ mamba activate abm_dev
 # # install activitysim
 # pip install "activitysim==1.2.1" --upgrade
 # optionally, override old versions of activitysim with development version
-pip install source/activitysim/activitysim-1.2.2.dev7+g681f7a9f-py3-none-any.whl --upgrade
+pip install https://github.com/TransLinkForecasting/conda_env/raw/master/source/activitysim/activitysim-1.2.2.dev8+g2155b0b4-py3-none-any.whl --upgrade
 # # install populationsim latest, dependencies: https://github.com/ActivitySim/populationsim/blob/master/setup.py
 # pip install source/popsim/populationsim-0.5.1.zip --upgrade
 # or install development version of populationsim
