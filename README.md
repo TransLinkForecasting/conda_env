@@ -42,23 +42,11 @@ Latest ABM development tools with ActivitySim, PopulationSim, and SciPy tools.
 mamba remove -y --name abm_dev --all
 mamba env create -n abm_dev -f abm_dev.yml
 mamba activate abm_dev
-# install development version of activitysim (optional)
-pip uninstall activitysim
-pip install https://github.com/TransLinkForecasting/conda_env/raw/master/source/activitysim/activitysim-1.2.2.dev8+g2155b0b4-py3-none-any.whl --upgrade
-# pip install git+https://github.com/TransLinkForecasting/activitysim@main --upgrade
 # install development version of populationsim (required as of Sep 22, 2023)
-pip uninstall populationsim
 pip install git+https://github.com/TransLinkForecasting/populationsim@master --upgrade
-# install geopandas and its dependencies
-setx GDAL_VERSION "3.3.3"
-pip install source/gpd/GDAL-3.3.3-cp39-cp39-win_amd64.whl --upgrade
-pip install source/gpd/Shapely-1.8.0-cp39-cp39-win_amd64.whl --upgrade
-pip install source/gpd/Fiona-1.8.20-cp39-cp39-win_amd64.whl --upgrade
-pip install source/gpd/pyproj-3.3.0-cp39-cp39-win_amd64.whl --upgrade
-pip install source/gpd/geopandas-0.10.2-py2.py3-none-any.whl --upgrade
-pip install source/gpd/Rtree-0.9.7-cp39-cp39-win_amd64.whl --upgrade
-pip install source/gpd/rasterio-1.2.10-cp39-cp39-win_amd64.whl --upgrade
-pip install source/gpd/Cartopy-0.20.1-cp39-cp39-win_amd64.whl --upgrade
+# install development version of activitysim
+# pip install https://github.com/TransLinkForecasting/conda_env/raw/master/source/activitysim/activitysim-1.2.2.dev8+g2155b0b4-py3-none-any.whl --upgrade
+pip install git+https://github.com/TransLinkForecasting/activitysim@main --upgrade
 ipython kernel install --user --name=abm_dev
 ```
 
