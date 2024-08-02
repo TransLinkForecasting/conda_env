@@ -187,6 +187,8 @@ dependencies:
   - zlib=1.2.11=h62dcd97_4
   - zstd=1.4.5=h04227a9_0
   - pip:
+    - activitysim==1.1.0
+    - populationsim==0.5.1
     - openmatrix==0.3.5.0
     - tables==3.5.1
     - xlrd==1.2.0
