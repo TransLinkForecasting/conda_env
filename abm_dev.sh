@@ -3,7 +3,7 @@
 ############################
 mamba remove -y --name abm_dev --all
 # create development environment with asim dependencies installed (base, test, estimation, and notebooks)
-mamba create -y -n abm_dev -c conda-forge --override-channels python=3.9 "cytoolz>=0.8.1" "numba>=0.55.2" "numpy>=1.16.1" "openmatrix>=0.3.4.1" "orca>=1.6" "pandas>=1.1.0,<1.5" "psutil>=4.1" "pyarrow>=2.0" "pypyr>=5.3" "pyyaml>=5.1" "requests>=2.7" "scikit-learn>=1.1" "sharrow>=2.5" "simwrapper>1.7" "pytables>=3.5.1" "xarray>=0.21" larch statsmodels pytest pytest-cov coveralls pycodestyle pytest-regressions jupyterlab matplotlib descartes pandasql scipy seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn-intelex yapf pip ipykernel
+mamba create -y -n abm_dev -c conda-forge --override-channels python=3.9 "cytoolz>=0.8.1" "numba>=0.55.2" "numpy>=1.16.1,<=1.24" "openmatrix>=0.3.4.1" "orca>=1.6" "pandas>=1.1.0,<1.5" "psutil>=4.1" "pyarrow>=2.0" "pypyr>=5.3" "pyyaml>=5.1" "requests>=2.7" "scikit-learn>=1.1" "sharrow>=2.5" "simwrapper>1.7" "pytables>=3.5.1" "xarray>=0.21" larch statsmodels pytest pytest-cov coveralls pycodestyle pytest-regressions jupyterlab matplotlib descartes pandasql scipy seaborn pyodbc sqlalchemy openpyxl xlrd xlsxwriter sympy nose scikit-learn-intelex yapf pip ipykernel
 # activate environment
 mamba activate abm_dev
 # # install activitysim
@@ -27,9 +27,11 @@ pip install plotly==5.15.0
 pip install dash==2.10.2
 pip install dash-extensions==1.0.1
 pip install dash-leaflet==0.1.23
+# additional packages
+pip install polyline==2.0.2
 # tlpytools latest
 pip install tlpytools --upgrade
-pip install --upgrade 'sqlalchemy<2.0'
+pip install --upgrade "sqlalchemy<2.0"
 # ipython kernel
 ipython kernel install --user --name=abm_dev
 # pip install jupyter_contrib_nbextensions
