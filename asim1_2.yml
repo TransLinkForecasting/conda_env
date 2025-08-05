@@ -1,4 +1,4 @@
-name: abm_dev
+name: asim1_2
 channels:
   - conda-forge
 dependencies:
