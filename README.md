@@ -25,8 +25,8 @@ Then, choose the environments you wish to install; the following environments ar
 Default Anaconda environment with jupyter notebook extension, install additional packages with script below.
 
 ```bash
-mamba install -y ipykernel ipython ipython_genutils ipywidgets jupyter jupyter_client jupyter_console jupyter_core nbconvert nbformat notebook yapf
-mamba install -y conda-pack
+conda install -y ipykernel ipython ipython_genutils ipywidgets jupyter jupyter_client jupyter_console jupyter_core nbconvert nbformat notebook yapf
+conda install -y conda-pack
 pip install --user --upgrade jupyter_contrib_nbextensions
 jupyter nbextension enable codefolding/main
 jupyter nbextension enable code_prettify/yapf
@@ -34,14 +34,14 @@ jupyter nbextension enable execute_time/ExecuteTime
 jupyter nbextension enable comment-uncomment/main
 ```
 
-### abm_dev
+### asim1_2
 
-Latest ABM development tools with ActivitySim, PopulationSim, and SciPy tools.
+Environment used for ABM development with ActivitySim, PopulationSim, and SciPy tools.
 
 ```bash
-mamba remove -y --name abm_dev --all
-mamba env create -n abm_dev -f abm_dev.yml
-mamba activate abm_dev
+conda remove -y --name asim1_2 --all
+conda env create -n asim1_2 -f asim1_2.yml
+conda activate asim1_2
 # install development version of activitysim (optional)
 pip uninstall activitysim
 pip install https://github.com/TransLinkForecasting/conda_env/raw/master/source/activitysim/activitysim-1.2.2.dev8+g2155b0b4-py3-none-any.whl --upgrade
@@ -59,7 +59,7 @@ pip install source/gpd/geopandas-0.10.2-py2.py3-none-any.whl --upgrade
 pip install source/gpd/Rtree-0.9.7-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/rasterio-1.2.10-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/Cartopy-0.20.1-cp39-cp39-win_amd64.whl --upgrade
-ipython kernel install --user --name=abm_dev
+ipython kernel install --user --name=asim1_2
 ```
 
 #### editable install for ActivitySim
@@ -76,7 +76,7 @@ Then within the cloned local directory, navigate to the correct environment and 
 
 ```
 cd activitysim
-mamba activate abm_dev
+conda activate asim1_2
 pip install -e ./
 ```
 
@@ -87,9 +87,9 @@ After the install, you must not move your local activitysim directory. The sourc
 
 Environment used for SPA data processing
 ```bash
-mamba remove -y --name abm_spa --all
-mamba env create -n abm_spa -f abm_spa.yml
-mamba activate abm_spa
+conda remove -y --name abm_spa --all
+conda env create -n abm_spa -f abm_spa.yml
+conda activate abm_spa
 ipython kernel install --user --name=abm_spa
 ```
 
@@ -97,17 +97,17 @@ ipython kernel install --user --name=abm_spa
 
 common packages to work with SQL Server, charts and figures
 ```bash
-mamba remove -y --name tlpy3 --all
-mamba env create -f tlpy3.yml
+conda remove -y --name tlpy3 --all
+conda env create -f tlpy3.yml
 ```
 
 ### tlgpd
 
 common packages plus geopandas to work with spatial files like shape files
 ```bash
-mamba remove -y --name tlgpd --all
-mamba create -y -n tlgpd python=3.9.7 pip
-mamba activate tlgpd
+conda remove -y --name tlgpd --all
+conda create -y -n tlgpd python=3.9.7 pip
+conda activate tlgpd
 # install geopandas precompiled wheels
 setx GDAL_VERSION "3.3.3"
 pip install source/gpd/GDAL-3.3.3-cp39-cp39-win_amd64.whl --upgrade
@@ -118,28 +118,28 @@ pip install source/gpd/geopandas-0.10.2-py2.py3-none-any.whl --upgrade
 pip install source/gpd/Rtree-0.9.7-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/rasterio-1.2.10-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/Cartopy-0.20.1-cp39-cp39-win_amd64.whl --upgrade
-mamba env update --file tlgpd.yml
+conda env update --file tlgpd.yml
 ```
 
 ### popsim_skipint
 
 survey weighting tool using populationsim with skip integer option enabled, based on Python 2.7. Used for Trip Diary 2017 and Evergreen Pre-Post Survey weighting.
 ```bash
-mamba create -y -n popsim_skipint python=2.7.16 pip
+conda create -y -n popsim_skipint python=2.7.16 pip
 pip install source/popsim/RSGInc-populationsim-698058b.zip
-mamba env update --file popsim_skipint.yml
+conda env update --file popsim_skipint.yml
 ```
 
 ### emat_tmip
 
 Environment based on `TMIP/EMAT`. No version-fixed yaml needed.
 ```bash
-mamba install -n base -c defaults conda anaconda-client
-mamba env create TMIP/EMAT
-mamba activate EMAT
+conda install -n base -c defaults conda anaconda-client
+conda env create TMIP/EMAT
+conda activate EMAT
 ipython kernel install --user --name=EMAT
-mamba env export -n EMAT -f EMAT.yml
-mamba deactivate
+conda env export -n EMAT -f EMAT.yml
+conda deactivate
 ```
 
 Learn more about conda environments here: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
@@ -150,7 +150,7 @@ Learn more about conda environments here: https://docs.conda.io/projects/conda/e
 
 To package a conda environment, run the conda-pack command in your base environment:
 ```bash
-mamba install conda-pack
+conda install conda-pack
 conda pack -n my_env -o ./source/conda_pack/my_env.tar.gz
 ```
 
