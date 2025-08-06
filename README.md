@@ -6,7 +6,9 @@ Each environment contains instruction to create a virtual environment, and insta
 
 ## Base Distribution
 
-The base distribution currently used is Mambaforge 23.1.0-1 Python 3.10, you can obtain it from [miniforge on GitHub]([https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Windows-x86_64.exe](https://github.com/conda-forge/miniforge/releases/download/23.1.0-1/Mambaforge-23.1.0-1-Windows-x86_64.exe). Note that while your base distribution is of a specific version of python, you can create and build any version of python for a specific conda environment. Mambaforge is a specific distribution of miniforge that uses a faster solver called mamba. It is an open source alternative to Anaconda. Similar to Conda / Anaconda, Mamba downloads and installs packages from conda package repositories.
+The base distribution currently used is Miniforge 25.3.1-0 Python 3.12, you can obtain it from [miniforge on GitHub]([https://github.com/conda-forge/miniforge/releases/download/25.3.1-0/Miniforge3-25.3.1-0-Windows-x86_64.exe](https://github.com/conda-forge/miniforge/releases/download/25.3.1-0/Miniforge3-25.3.1-0-Windows-x86_64.exe). Note that while your base distribution is of a specific version of python, you can create and build any version of python for a specific conda environment. Mambaforge is a specific distribution of miniforge that uses a faster solver called mamba. It is an open source alternative to Anaconda. Similar to Conda / Anaconda, conda downloads and installs packages from conda package repositories.
+
+If you have issue with opening up the miniforge installation file, you may need to click on properties of the exe file and check unblock.
 
 ## Getting started
 
@@ -34,7 +36,47 @@ jupyter nbextension enable execute_time/ExecuteTime
 jupyter nbextension enable comment-uncomment/main
 ```
 
-### asim1_2
+### asim1_4
+
+Environment used for ABM development with ActivitySim. There are three versions of installations:
+* for production model run purpose, use `asim1_4-prd.yml`
+* for development purpose, use `asim1_4-dev.yml`
+* for testing purpose, use `asim1_4-base.yml`
+
+Note that production version has the fewest packages required to run ActivitySim and has been tested against both windows and linux environments. The production version is what is committed to the abm repository - see `ABM\Scripts\environments\activitysim-prd.yml`. The development version has only been tested on windows; it has all packages in production plus packages requried for testing, documentation builds, and estimation. The testing purpose base environment is used to build both production and development version, the specific commands used to build all of these versions can be found in `asim1_4.sh`.
+
+Following the instructions below to install development environment for ActivitySim v1.4.0.
+
+```bash
+conda remove -y --name asim1_4 --all
+conda env create -n asim1_4 -f asim1_4-dev.yml
+conda activate asim1_4
+ipython kernel install --user --name=asim1_4
+```
+
+#### editable install for ActivitySim
+
+A typical installation of Python Package will not allow developers to debug or perform live update on the source code of the package. In order to do this, a editable install can be done. Be mindful that any changes performed on the source (activitysim) package must be merged back into either the main repository in order for it to be available with regular installs, otherwise, a custom version of the package must always be used. As such, changes to the source code for an editable install should be done with care and be communicated with other developers to avoid potential errors.
+
+To perform an editable install of a python package, you must first clone the source code, in this case, for activitysim:
+
+```
+git clone -b main https://github.com/TransLinkForecasting/activitysim.git
+```
+
+Then within the cloned local directory, navigate to the correct environment and perform the editable install:
+
+```
+cd activitysim
+conda activate asim1_2
+pip install -e ./
+```
+
+After the install, you must not move your local activitysim directory. The source code within this directory will be used when calling activitysim, and any updates to the code within this directory will be reflected immediately in your environment.
+
+#### previous versions of ActivitySim
+
+**asim1_2**
 
 Environment used for ABM development with ActivitySim, PopulationSim, and SciPy tools.
 
@@ -61,27 +103,6 @@ pip install source/gpd/rasterio-1.2.10-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/Cartopy-0.20.1-cp39-cp39-win_amd64.whl --upgrade
 ipython kernel install --user --name=asim1_2
 ```
-
-#### editable install for ActivitySim
-
-A typical installation of Python Package will not allow developers to debug or perform live update on the source code of the package. In order to do this, a editable install can be done. Be mindful that any changes performed on the source (activitysim) package must be merged back into either the main repository in order for it to be available with regular installs, otherwise, a custom version of the package must always be used. As such, changes to the source code for an editable install should be done with care and be communicated with other developers to avoid potential errors.
-
-To perform an editable install of a python package, you must first clone the source code, in this case, for activitysim:
-
-```
-git clone -b main https://github.com/TransLinkForecasting/activitysim.git
-```
-
-Then within the cloned local directory, navigate to the correct environment and perform the editable install:
-
-```
-cd activitysim
-conda activate asim1_2
-pip install -e ./
-```
-
-After the install, you must not move your local activitysim directory. The source code within this directory will be used when calling activitysim, and any updates to the code within this directory will be reflected immediately in your environment.
-
 
 ### abm_spa
 
