@@ -39,11 +39,10 @@ jupyter nbextension enable comment-uncomment/main
 ### asim1_4
 
 Environment used for ABM development with ActivitySim. There are three versions of installations:
-* for production model run purpose, use `asim1_4-prd.yml`
+* for production model run purpose, use `asim1_4-base.yml`
 * for development purpose, use `asim1_4-dev.yml`
-* for testing purpose, use `asim1_4-base.yml`
 
-Note that production version has the fewest packages required to run ActivitySim and has been tested against both windows and linux environments. The production version is what is committed to the abm repository - see `ABM\Scripts\environments\activitysim-prd.yml`. The development version has only been tested on windows; it has all packages in production plus packages requried for testing, documentation builds, and estimation. The testing purpose base environment is used to build both production and development version, the specific commands used to build all of these versions can be found in `asim1_4.sh`.
+Note that production version has the fewest packages required to run ActivitySim and has been tested against both windows and linux environments. The production version is what is committed to the abm repository - see `ABM\Scripts\environments\activitysim-dev-base.yml`. The development version has only been tested on windows; it has all packages in production plus packages requried for testing, documentation builds, and estimation. The specific commands used to build all versions can be found in `asim1_4.sh`.
 
 Following the instructions below to install development environment for ActivitySim v1.4.0.
 
