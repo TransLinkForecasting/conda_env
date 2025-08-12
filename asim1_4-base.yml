@@ -85,3 +85,4 @@ dependencies:
   - autodoc_pydantic
   - activitysim==1.4.0
   # - numpy==1.24.4  # needed to avoid numpy compatibility errors
+  - tlpytools==0.1.6.1
