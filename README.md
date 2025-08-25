@@ -68,7 +68,7 @@ Packages can be added to this environment by running pip install once you are so
 cd %USERPROFILE%
 git clone https://github.com/TransLinkForecasting/activitysim.git -b v1.4.dev3471 --depth 1
 cd activitysim
-uv sync --no-editable --no-dev
+uv sync --no-editable
 ```
 
 The ActivitySim python environment location will always be relative to where your activitysim source code is, and it may be different depending on your OS:
