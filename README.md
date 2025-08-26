@@ -62,11 +62,11 @@ jupyter nbextension enable comment-uncomment/main
 
 Environment used for ABM development with ActivitySim, with installation managed by uv. Additional packages for general development will not be made available directly in this environment as the list of packages and their versions will be controlled by the ActivitySim package.
 
-Packages can be added to this environment by running pip install once you are sourced into this environment, although this is not recommended for machines responsible for conducting production runs. A separate environment should be established with additional packages if they are needed.
+Packages can be added to this environment by running `uv add PACKAGE_NAME` once you are sourced into this environment, although this is not recommended for machines responsible for conducting production runs. A separate environment with additional packages is generally recommended.
 
 ```bash
 cd %USERPROFILE%
-git clone https://github.com/TransLinkForecasting/activitysim.git -b v1.4.dev3471 --depth 1
+git clone https://github.com/TransLinkForecasting/activitysim.git -b tl_dev --depth 1
 cd activitysim
 uv sync --no-editable
 ```
