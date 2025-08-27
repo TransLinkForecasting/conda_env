@@ -64,8 +64,19 @@ Environment used for ABM development with ActivitySim, with installation managed
 
 Packages can be added to this environment by running `uv add PACKAGE_NAME` once you are sourced into this environment, although this is not recommended for machines responsible for conducting production runs. A separate environment with additional packages is generally recommended.
 
+#### Optional, set install and cache path
+
+By default, uv will install python executable and cache in local user directories, you can set it to common directories if preferred:
+
+```powershell
+SET UV_PYTHON_INSTALL_DIR=C:\ProgramData\uv\python
+SET UV_CACHE_DIR=C:\ProgramData\uv\cache
+```
+
+#### Install activitysim with uv
+
 ```bash
-cd %USERPROFILE%
+cd C:\ProgramData\uv
 git clone https://github.com/TransLinkForecasting/activitysim.git -b tl_dev --depth 1
 cd activitysim
 uv sync --no-editable
