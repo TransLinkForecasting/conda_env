@@ -82,9 +82,16 @@ cd activitysim
 uv sync --no-editable
 ```
 
-The ActivitySim python environment location will always be relative to where your activitysim source code is, and it may be different depending on your OS:
-* on Windows, it should be in Scripts folder - `%USERPROFILE%/activitysim/.venv/Scripts/python.exe`
-* on Linux, it should be in bin - `~/activitysim/.venv/bin/python`
+The ActivitySim python environment location will always be relative to where your activitysim source code is, and it may be slightly different depending on your OS:
+* on Windows, it should be in Scripts folder - `activitysim/.venv/Scripts/python.exe`
+* on Linux, it should be in bin - `activitysim/.venv/bin/python`
+
+#### Setting environment variables for ABM & ORCA
+
+If you are using ORCA orchestrator or OpenPath EMME to run ActivitySim, you would need to set system or user environment variables as per your activitysim python environment path:
+
+From the start menu on Windows, find `Edit environment variables for your account`, then enter the follwing environment variables:
+* `ORCA_ACTIVITYSIM_ENV` - `C:\ProgramData\uv\activitysim\.venv\Scripts\python.exe`
 
 
 #### editable install for ActivitySim
