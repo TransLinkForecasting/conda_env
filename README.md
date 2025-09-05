@@ -58,6 +58,22 @@ jupyter nbextension enable execute_time/ExecuteTime
 jupyter nbextension enable comment-uncomment/main
 ```
 
+### quetzal
+
+Quetzal environment files are package with the orca repository and can be installed using conda:
+
+```bash
+git clone https://github.com/TransLinkForecasting/quetzal.git -b master
+conda create -n quetzal_env -y python=3.12 && \
+conda run --no-capture-output -n quetzal_env python -m pip install -e . -r requirements_win.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org && \
+conda run --no-capture-output -n quetzal_env python -m ipykernel install --user --name=quetzal
+```
+
+#### Setting environment variables for Quetzal
+
+From the start menu on Windows, find `Edit environment variables for your account`, then enter the following environment variables (if you changed your working path when cloning ActivitySim, please adjust this path accordingly):
+* `ORCA_QUETZAL_ENV` - `%USERPROFILE%\AppData\Local\miniforge3\envs\quetzal_env\python.exe`
+
 ### asim1_4_dev3471
 
 Environment used for ABM development with ActivitySim, with installation managed by uv. Additional packages for general development will not be made available directly in this environment as the list of packages and their versions will be controlled by the ActivitySim package.
@@ -73,25 +89,33 @@ SET UV_PYTHON_INSTALL_DIR=C:\ProgramData\uv\python
 SET UV_CACHE_DIR=C:\ProgramData\uv\cache
 ```
 
-#### Install activitysim with uv
+If you'd like to use these paths for future uv environments, please set them as environment variable for your machine. From the start menu on Windows, find `Edit the system environment variables`, then enter these environment variables:
+* `UV_PYTHON_INSTALL_DIR` - `C:\ProgramData\uv\python`
+* `UV_CACHE_DIR` - `C:\ProgramData\uv\cache`
+
+
+#### Install ActivitySim with uv
+
+In order to maintain compatibility with TransLink suite of tools and utilities that are commonly used to read data from our Azure Innovation Lab and to manage data processing, installations of ActivitySim will be performed with uv through the tlpytools package. ActivitySim version will be determined by latest main on tlpytools. While `uv sync --no-editable` option is recommended for production environments, it has been excluded below assuming the users are installing ActivitySim for development purposes, which provide the potential to put debugging breakpoints within ActivitySim source code.
 
 ```bash
 cd C:\ProgramData
-git clone https://github.com/TransLinkForecasting/activitysim.git -b tl_dev --depth 1
-cd activitysim
-uv sync --no-editable
+git clone https://github.com/TransLinkForecasting/tlpytools.git -b main --depth 1
+cd tlpytools
+uv sync --extra dev --extra orca --group ActivitySim
 ```
 
 The ActivitySim Python environment location will always be relative to where your ActivitySim source code is, and it may be slightly different depending on your OS:
-* on Windows, it should be in the Scripts folder - `activitysim/.venv/Scripts/python.exe`
-* on Linux, it should be in bin - `activitysim/.venv/bin/python`
+* on Windows, it should be in the Scripts folder - `tlpytools/.venv/Scripts/python.exe`
+* on Linux, it should be in bin - `tlpytools/.venv/bin/python`
 
 #### Setting environment variables for ABM & ORCA
 
 If you are using ORCA orchestrator or OpenPath EMME to run ActivitySim, you would need to set system or user environment variables as per your ActivitySim Python environment path:
 
 From the start menu on Windows, find `Edit environment variables for your account`, then enter the following environment variables (if you changed your working path when cloning ActivitySim, please adjust this path accordingly):
-* `ORCA_ACTIVITYSIM_ENV` - `C:\ProgramData\activitysim\.venv\Scripts\python.exe`
+* `ORCA_ActivitySim_ENV` - `C:\ProgramData\tlpytools\.venv\Scripts\python.exe`
+* `ORCA_BASE_ENV` - `C:\ProgramData\tlpytools\.venv\Scripts\python.exe`
 
 
 #### editable install for ActivitySim
@@ -101,13 +125,13 @@ A typical installation of a Python package will not allow developers to debug or
 The default behavior of uv for ActivitySim version greater than v1.4 is to install with editable mode, but if you'd like to change the version of ActivitySim only, the following instructions will still work. To perform an editable install of a Python package, you must first clone the source code, in this case, for ActivitySim:
 
 ```
-git clone -b main https://github.com/TransLinkForecasting/activitysim.git
+git clone -b main https://github.com/TransLinkForecasting/ActivitySim.git
 ```
 
 Then within the cloned local directory, navigate to the correct environment and perform the editable install:
 
 ```
-cd activitysim
+cd ActivitySim
 conda activate asim1_4
 pip install -e ./
 ```
@@ -124,10 +148,10 @@ Environment used for ABM development with ActivitySim, PopulationSim, and SciPy 
 conda remove -y --name asim1_2 --all
 conda env create -n asim1_2 -f asim1_2.yml
 conda activate asim1_2
-# install development version of activitysim (optional)
-pip uninstall activitysim
-pip install https://github.com/TransLinkForecasting/conda_env/raw/master/source/activitysim/activitysim-1.2.2.dev8+g2155b0b4-py3-none-any.whl --upgrade
-# pip install git+https://github.com/TransLinkForecasting/activitysim@main --upgrade
+# install development version of ActivitySim (optional)
+pip uninstall ActivitySim
+pip install https://github.com/TransLinkForecasting/conda_env/raw/master/source/ActivitySim/ActivitySim-1.2.2.dev8+g2155b0b4-py3-none-any.whl --upgrade
+# pip install git+https://github.com/TransLinkForecasting/ActivitySim@main --upgrade
 # install development version of populationsim (required as of Sep 22, 2023)
 pip uninstall populationsim
 pip install git+https://github.com/TransLinkForecasting/populationsim@master --upgrade
