@@ -1,18 +1,42 @@
 # Conda Environments
 
-This repository contains instruction to set up standard environments for working with various Analytics projects.
+This repository contains instructions to set up standard environments for working with various Analytics projects.
 
-Each environment contains instruction to create a virtual environment, and install all the relevant requirements and packages. The purpose of virtual environments is to standardize code  version across developers and to minimize version conflicts.
+Each environment contains instructions to create a virtual environment and install all the relevant requirements and packages. The purpose of virtual environments is to standardize code versions across developers and to minimize version conflicts.
+
+## Installations
+
+In order to set up environments listed below, you will need to install both conda and uv.
+
+### Set up uv
+
+1. Download uv Windows executable - [uv-x86_64-pc-windows-msvc.zip](https://github.com/astral-sh/uv/releases/download/0.8.13/uv-x86_64-pc-windows-msvc.zip)
+2. Move all files within the zip file downloaded (including `uv.exe`, `uvw.exe`, `uvx.exe`) into a new folder `C:\ProgramData\uv`
+3. Add `C:\ProgramData\uv` to the system environment variable PATH.
+4. Open a new command prompt and test the command `uv --help`
+
+### Set up miniforge
+
+1. Download miniforge Windows installer - [Miniforge3-25.3.1-0-Windows-x86_64.exe](https://github.com/conda-forge/miniforge/releases/download/25.3.1-0/Miniforge3-25.3.1-0-Windows-x86_64.exe)
+2. Install miniforge
+    - For Developer Desktops, it is recommended to install in the user folder for single user non-admin access: `%USERPROFILE%\AppData\Local\miniforge3`
+    - For Production VMs and Servers, it is recommended to install in the ProgramData directory for multi-user access:
+    `C:\ProgramData\miniforge3`
+3. Test and confirm installation
+    - Open miniforge prompt, run `conda --help`
+    - To add conda to the regular command prompt, run `conda init`
 
 ## Base Distribution
 
-The base distribution currently used is Mambaforge 23.1.0-1 Python 3.10, you can obtain it from [miniforge on GitHub]([https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Windows-x86_64.exe](https://github.com/conda-forge/miniforge/releases/download/23.1.0-1/Mambaforge-23.1.0-1-Windows-x86_64.exe). Note that while your base distribution is of a specific version of python, you can create and build any version of python for a specific conda environment. Mambaforge is a specific distribution of miniforge that uses a faster solver called mamba. It is an open source alternative to Anaconda. Similar to Conda / Anaconda, Mamba downloads and installs packages from conda package repositories.
+The base distribution currently used is Miniforge 25.3.1-0 Python 3.12; you can obtain it from miniforge on GitHub (see the Installation section above). Note that while your base distribution is of a specific version of Python, you can create and build any version of Python for a specific conda environment. Mambaforge is a specific distribution of miniforge that uses a faster solver called mamba. It is an open source alternative to Anaconda. Similar to Conda/Anaconda, conda downloads and installs packages from conda package repositories.
 
-## Getting started
+If you have issues opening the miniforge installation file, you may need to click on properties of the exe file and check unblock.
 
-To bump versions and then create a new build of the environment, run the bash (`.sh`) files for a corresponding environment. To install a current version of an environment, follow the instruction below to install each environment with yaml (`.yml`) files. 
+## Getting Started
 
-First, you must clone a copy of this repository
+To bump versions and then create a new build of the environment, run the bash (`.sh`) files for the corresponding environment. To install a current version of an environment, follow the instructions below to install each environment with YAML (`.yml`) files. 
+
+First, you must clone a copy of this repository:
 ```bash
 git clone --depth 1 https://github.com/TransLinkForecasting/conda_env.git
 cd conda_env
@@ -22,11 +46,11 @@ Then, choose the environments you wish to install; the following environments ar
 
 ### base
 
-Default Anaconda environment with jupyter notebook extension, install additional packages with script below.
+Default Anaconda environment with Jupyter notebook extensions. Install additional packages with the script below:
 
 ```bash
-mamba install -y ipykernel ipython ipython_genutils ipywidgets jupyter jupyter_client jupyter_console jupyter_core nbconvert nbformat notebook yapf
-mamba install -y conda-pack
+conda install -y ipykernel ipython ipython_genutils ipywidgets jupyter jupyter_client jupyter_console jupyter_core nbconvert nbformat notebook yapf
+conda install -y conda-pack
 pip install --user --upgrade jupyter_contrib_nbextensions
 jupyter nbextension enable codefolding/main
 jupyter nbextension enable code_prettify/yapf
@@ -34,18 +58,100 @@ jupyter nbextension enable execute_time/ExecuteTime
 jupyter nbextension enable comment-uncomment/main
 ```
 
-### abm_dev
+### quetzal
 
-Latest ABM development tools with ActivitySim, PopulationSim, and SciPy tools.
+Quetzal environment files are package with the orca repository and can be installed using conda:
 
 ```bash
-mamba remove -y --name abm_dev --all
-mamba env create -n abm_dev -f abm_dev.yml
-mamba activate abm_dev
-# install development version of activitysim (optional)
-pip uninstall activitysim
-pip install https://github.com/TransLinkForecasting/conda_env/raw/master/source/activitysim/activitysim-1.2.2.dev8+g2155b0b4-py3-none-any.whl --upgrade
-# pip install git+https://github.com/TransLinkForecasting/activitysim@main --upgrade
+git clone https://github.com/TransLinkForecasting/quetzal.git -b master
+conda create -n quetzal_env -y python=3.12 && \
+conda run --no-capture-output -n quetzal_env python -m pip install -e . -r requirements_win.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org && \
+conda run --no-capture-output -n quetzal_env python -m ipykernel install --user --name=quetzal
+```
+
+#### Setting environment variables for Quetzal
+
+From the start menu on Windows, find `Edit environment variables for your account`, then enter the following environment variables (if you changed your working path when cloning ActivitySim, please adjust this path accordingly):
+* `ORCA_QUETZAL_ENV` - `%USERPROFILE%\AppData\Local\miniforge3\envs\quetzal_env\python.exe`
+
+### asim1_4_dev3471
+
+Environment used for ABM development with ActivitySim, with installation managed by uv. Additional packages for general development will not be made available directly in this environment as the list of packages and their versions will be controlled by the ActivitySim package.
+
+Packages can be added to this environment by running `uv add PACKAGE_NAME` once you are sourced into this environment, although this is not recommended for machines responsible for conducting production runs. A separate environment with additional packages is generally recommended.
+
+#### Optional, set install and cache path
+
+By default, uv will install the Python executable and cache in local user directories. You can set them to common directories if preferred:
+
+```powershell
+SET UV_PYTHON_INSTALL_DIR=C:\ProgramData\uv\python
+SET UV_CACHE_DIR=C:\ProgramData\uv\cache
+```
+
+If you'd like to use these paths for future uv environments, please set them as environment variable for your machine. From the start menu on Windows, find `Edit the system environment variables`, then enter these environment variables:
+* `UV_PYTHON_INSTALL_DIR` - `C:\ProgramData\uv\python`
+* `UV_CACHE_DIR` - `C:\ProgramData\uv\cache`
+
+
+#### Install ActivitySim with uv
+
+In order to maintain compatibility with TransLink suite of tools and utilities that are commonly used to read data from our Azure Innovation Lab and to manage data processing, installations of ActivitySim will be performed with uv through the tlpytools package. ActivitySim version will be determined by latest main on tlpytools. While `uv sync --no-editable` option is recommended for production environments, it has been excluded below assuming the users are installing ActivitySim for development purposes, which provide the potential to put debugging breakpoints within ActivitySim source code.
+
+```bash
+cd C:\ProgramData
+git clone https://github.com/TransLinkForecasting/tlpytools.git -b main --depth 1
+cd tlpytools
+uv sync --extra dev --extra orca --group ActivitySim
+```
+
+The ActivitySim Python environment location will always be relative to where your ActivitySim source code is, and it may be slightly different depending on your OS:
+* on Windows, it should be in the Scripts folder - `tlpytools/.venv/Scripts/python.exe`
+* on Linux, it should be in bin - `tlpytools/.venv/bin/python`
+
+#### Setting environment variables for ABM & ORCA
+
+If you are using ORCA orchestrator or OpenPath EMME to run ActivitySim, you would need to set system or user environment variables as per your ActivitySim Python environment path:
+
+From the start menu on Windows, find `Edit environment variables for your account`, then enter the following environment variables (if you changed your working path when cloning ActivitySim, please adjust this path accordingly):
+* `ORCA_ActivitySim_ENV` - `C:\ProgramData\tlpytools\.venv\Scripts\python.exe`
+* `ORCA_BASE_ENV` - `C:\ProgramData\tlpytools\.venv\Scripts\python.exe`
+
+
+#### editable install for ActivitySim
+
+A typical installation of a Python package will not allow developers to debug or perform live updates on the source code of the package. In order to do this, an editable install can be done. Be mindful that any changes performed on the source (ActivitySim) package must be merged back into either the main repository in order for it to be available with regular installs; otherwise, a custom version of the package must always be used. As such, changes to the source code for an editable install should be done with care and communicated with other developers to avoid potential errors.
+
+The default behavior of uv for ActivitySim version greater than v1.4 is to install with editable mode, but if you'd like to change the version of ActivitySim only, the following instructions will still work. To perform an editable install of a Python package, you must first clone the source code, in this case, for ActivitySim:
+
+```
+git clone -b main https://github.com/TransLinkForecasting/ActivitySim.git
+```
+
+Then within the cloned local directory, navigate to the correct environment and perform the editable install:
+
+```
+cd ActivitySim
+conda activate asim1_4
+pip install -e ./
+```
+
+After the install, you must not move your local ActivitySim directory. The source code within this directory will be used when calling ActivitySim, and any updates to the code within this directory will be reflected immediately in your environment.
+
+#### Previous Versions of ActivitySim
+
+**asim1_2**
+
+Environment used for ABM development with ActivitySim, PopulationSim, and SciPy tools. This environment used to be called `abm_dev` and has been renamed to clearly refer to the ActivitySim version.
+
+```bash
+conda remove -y --name asim1_2 --all
+conda env create -n asim1_2 -f asim1_2.yml
+conda activate asim1_2
+# install development version of ActivitySim (optional)
+pip uninstall ActivitySim
+pip install https://github.com/TransLinkForecasting/conda_env/raw/master/source/ActivitySim/ActivitySim-1.2.2.dev8+g2155b0b4-py3-none-any.whl --upgrade
+# pip install git+https://github.com/TransLinkForecasting/ActivitySim@main --upgrade
 # install development version of populationsim (required as of Sep 22, 2023)
 pip uninstall populationsim
 pip install git+https://github.com/TransLinkForecasting/populationsim@master --upgrade
@@ -59,56 +165,36 @@ pip install source/gpd/geopandas-0.10.2-py2.py3-none-any.whl --upgrade
 pip install source/gpd/Rtree-0.9.7-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/rasterio-1.2.10-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/Cartopy-0.20.1-cp39-cp39-win_amd64.whl --upgrade
-ipython kernel install --user --name=abm_dev
+ipython kernel install --user --name=asim1_2
 ```
-
-#### editable install for ActivitySim
-
-A typical installation of Python Package will not allow developers to debug or perform live update on the source code of the package. In order to do this, a editable install can be done. Be mindful that any changes performed on the source (activitysim) package must be merged back into either the main repository in order for it to be available with regular installs, otherwise, a custom version of the package must always be used. As such, changes to the source code for an editable install should be done with care and be communicated with other developers to avoid potential errors.
-
-To perform an editable install of a python package, you must first clone the source code, in this case, for activitysim:
-
-```
-git clone -b main https://github.com/TransLinkForecasting/activitysim.git
-```
-
-Then within the cloned local directory, navigate to the correct environment and perform the editable install:
-
-```
-cd activitysim
-mamba activate abm_dev
-pip install -e ./
-```
-
-After the install, you must not move your local activitysim directory. The source code within this directory will be used when calling activitysim, and any updates to the code within this directory will be reflected immediately in your environment.
-
 
 ### abm_spa
 
-Environment used for SPA data processing
+Environment used for SPA data processing:
 ```bash
-mamba remove -y --name abm_spa --all
-mamba env create -n abm_spa -f abm_spa.yml
-mamba activate abm_spa
+conda remove -y --name abm_spa --all
+conda env create -n abm_spa -f abm_spa.yml
+conda activate abm_spa
 ipython kernel install --user --name=abm_spa
 ```
 
 ### tlpy3
 
-common packages to work with SQL Server, charts and figures
+Common packages to work with SQL Server, charts and figures:
 ```bash
-mamba remove -y --name tlpy3 --all
-mamba env create -f tlpy3.yml
+conda remove -y --name tlpy3 --all
+conda env create -f tlpy3.yml
 ```
 
 ### tlgpd
 
-common packages plus geopandas to work with spatial files like shape files
+Common packages plus GeoPandas to work with spatial files like shapefiles:
+
 ```bash
-mamba remove -y --name tlgpd --all
-mamba create -y -n tlgpd python=3.9.7 pip
-mamba activate tlgpd
-# install geopandas precompiled wheels
+conda remove -y --name tlgpd --all
+conda create -y -n tlgpd python=3.9.7 pip
+conda activate tlgpd
+# install GeoPandas precompiled wheels
 setx GDAL_VERSION "3.3.3"
 pip install source/gpd/GDAL-3.3.3-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/Shapely-1.8.0-cp39-cp39-win_amd64.whl --upgrade
@@ -118,43 +204,44 @@ pip install source/gpd/geopandas-0.10.2-py2.py3-none-any.whl --upgrade
 pip install source/gpd/Rtree-0.9.7-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/rasterio-1.2.10-cp39-cp39-win_amd64.whl --upgrade
 pip install source/gpd/Cartopy-0.20.1-cp39-cp39-win_amd64.whl --upgrade
-mamba env update --file tlgpd.yml
+conda env update --file tlgpd.yml
 ```
 
 ### popsim_skipint
 
-survey weighting tool using populationsim with skip integer option enabled, based on Python 2.7. Used for Trip Diary 2017 and Evergreen Pre-Post Survey weighting.
+Survey weighting tool using PopulationSim with skip integer option enabled, based on Python 2.7. Used for Trip Diary 2017 and Evergreen Pre-Post Survey weighting:
+
 ```bash
-mamba create -y -n popsim_skipint python=2.7.16 pip
+conda create -y -n popsim_skipint python=2.7.16 pip
 pip install source/popsim/RSGInc-populationsim-698058b.zip
-mamba env update --file popsim_skipint.yml
+conda env update --file popsim_skipint.yml
 ```
 
 ### emat_tmip
 
-Environment based on `TMIP/EMAT`. No version-fixed yaml needed.
+Environment based on `TMIP/EMAT`. No version-fixed YAML needed.
 ```bash
-mamba install -n base -c defaults conda anaconda-client
-mamba env create TMIP/EMAT
-mamba activate EMAT
+conda install -n base -c defaults conda anaconda-client
+conda env create TMIP/EMAT
+conda activate EMAT
 ipython kernel install --user --name=EMAT
-mamba env export -n EMAT -f EMAT.yml
-mamba deactivate
+conda env export -n EMAT -f EMAT.yml
+conda deactivate
 ```
 
 Learn more about conda environments here: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
 
-## Building conda-pack for offline access
+## Building Conda-Pack for Offline Access
 
 [Conda-pack](https://conda.github.io/conda-pack/) is a tool for creating archives of conda environments which can then be distributed on offline systems.
 
 To package a conda environment, run the conda-pack command in your base environment:
 ```bash
-mamba install conda-pack
+conda install conda-pack
 conda pack -n my_env -o ./source/conda_pack/my_env.tar.gz
 ```
 
-To set up the package in a new machine, locate your miniconda or ananconda folder and unpack:
+To set up the package on a new machine, locate your miniconda or anaconda folder and unpack:
 ```bash
 mkdir -p /dir/to/miniconda3/envs/my_env
 tar -xzf my_env.tar.gz -C /dir/to/miniconda3/envs/my_env
@@ -166,6 +253,6 @@ source my_env/bin/deactivate
 
 ## Deprecated Environments
 
-Following are a list of environments no longer supported via this repository:
+The following is a list of environments no longer supported via this repository:
 
 * `rtm_docs`: mkdocs to build rtm docs (deprecated from this repo, see requirements.txt attached to the rtmdoc repo)

@@ -1,6 +1,6 @@
-mamba install -n base -c defaults conda anaconda-client
-mamba env create TMIP/EMAT
-mamba activate EMAT
+conda install -n base -c defaults conda anaconda-client
+conda env create TMIP/EMAT
+conda activate EMAT
 ipython kernel install --user --name=EMAT
-mamba env export -n EMAT -f EMAT.yml
-mamba deactivate
+conda env export -n EMAT -f EMAT.yml
+conda deactivate
