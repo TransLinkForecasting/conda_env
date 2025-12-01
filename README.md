@@ -86,12 +86,12 @@ By default, uv will install the Python executable and cache in local user direct
 
 ```powershell
 SET UV_PYTHON_INSTALL_DIR=C:\ProgramData\uv\python
-SET UV_CACHE_DIR=C:\ProgramData\uv\cache
+SET UV_CACHE_DIR=C:\ProgramData\uv\cache\%USERNAME%
 ```
 
-If you'd like to use these paths for future uv environments, please set them as environment variable for your machine. From the start menu on Windows, find `Edit the system environment variables`, then enter these environment variables:
+If you'd like to use these paths for future uv environments, please set them as environment variable for your machine. From the start menu on Windows, find `Edit the system environment variables` (admin privilege required), then enter these environment variables:
 * `UV_PYTHON_INSTALL_DIR` - `C:\ProgramData\uv\python`
-* `UV_CACHE_DIR` - `C:\ProgramData\uv\cache`
+* `UV_CACHE_DIR` - `C:\ProgramData\uv\cache\%USERNAME%`
 
 
 #### Install ActivitySim with uv
