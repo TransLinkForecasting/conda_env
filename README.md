@@ -74,7 +74,7 @@ conda run --no-capture-output -n quetzal_env python -m ipykernel install --user 
 From the start menu on Windows, find `Edit environment variables for your account`, then enter the following environment variables (if you changed your working path when cloning ActivitySim, please adjust this path accordingly):
 * `ORCA_QUETZAL_ENV` - `%USERPROFILE%\AppData\Local\miniforge3\envs\quetzal_env\python.exe`
 
-### asim1_4_dev3471
+### activitysim
 
 Environment used for ABM development with ActivitySim, with installation managed by uv. Additional packages for general development will not be made available directly in this environment as the list of packages and their versions will be controlled by the ActivitySim package.
 
